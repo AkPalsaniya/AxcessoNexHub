@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34316.72
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AxcessoNexHub", "AxcessoNexHub\AxcessoNexHub.csproj", "{10C27692-7E79-4254-AF66-3E4F33383831}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clinic Management", "..\..\Mini Project\Clinic Management\Clinic Management\Clinic Management.csproj", "{6B746920-56A0-4F03-848F-04FC16314B2E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10C27692-7E79-4254-AF66-3E4F33383831}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10C27692-7E79-4254-AF66-3E4F33383831}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10C27692-7E79-4254-AF66-3E4F33383831}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10C27692-7E79-4254-AF66-3E4F33383831}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B746920-56A0-4F03-848F-04FC16314B2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B746920-56A0-4F03-848F-04FC16314B2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B746920-56A0-4F03-848F-04FC16314B2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B746920-56A0-4F03-848F-04FC16314B2E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7BC278A1-69F1-4E08-844F-4E6B4B010036}
+	EndGlobalSection
+EndGlobal

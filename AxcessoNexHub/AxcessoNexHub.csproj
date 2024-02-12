@@ -1,0 +1,609 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{10C27692-7E79-4254-AF66-3E4F33383831}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AxcessoNexHub</RootNamespace>
+    <AssemblyName>AxcessoNexHub</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44383</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="addBrand.aspx" />
+    <Content Include="addCategory.aspx" />
+    <Content Include="AddProduct.aspx" />
+    <Content Include="addSize.aspx" />
+    <Content Include="addSubCategory.aspx" />
+    <Content Include="adminAction.asmx" />
+    <Content Include="adminHome.aspx" />
+    <Content Include="assets\css\style-prefix.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\images\banner-1.jpg" />
+    <Content Include="assets\images\banner-2.jpg" />
+    <Content Include="assets\images\banner-3.jpg" />
+    <Content Include="assets\images\blog-1.jpg" />
+    <Content Include="assets\images\blog-2.jpg" />
+    <Content Include="assets\images\blog-3.jpg" />
+    <Content Include="assets\images\blog-4.jpg" />
+    <Content Include="assets\images\cta-banner.jpg" />
+    <Content Include="assets\images\electronics-banner-1.jpg" />
+    <Content Include="assets\images\electronics-banner-2.jpg" />
+    <Content Include="assets\images\icons\bag.svg" />
+    <Content Include="assets\images\icons\coat.svg" />
+    <Content Include="assets\images\icons\cosmetics.svg" />
+    <Content Include="assets\images\icons\dress.svg" />
+    <Content Include="assets\images\icons\glasses.svg" />
+    <Content Include="assets\images\icons\hat.svg" />
+    <Content Include="assets\images\icons\jacket.svg" />
+    <Content Include="assets\images\icons\jewelry.svg" />
+    <Content Include="assets\images\icons\perfume.svg" />
+    <Content Include="assets\images\icons\quotes.svg" />
+    <Content Include="assets\images\icons\shoes.svg" />
+    <Content Include="assets\images\icons\shorts.svg" />
+    <Content Include="assets\images\icons\tee.svg" />
+    <Content Include="assets\images\icons\watch.svg" />
+    <Content Include="assets\images\logo\favicon.ico" />
+    <Content Include="assets\images\logo\logo.svg" />
+    <Content Include="assets\images\mens-banner.jpg" />
+    <Content Include="assets\images\newsletter.png" />
+    <Content Include="assets\images\payment.png" />
+    <Content Include="assets\images\products\1.jpg" />
+    <Content Include="assets\images\products\2.jpg" />
+    <Content Include="assets\images\products\3.jpg" />
+    <Content Include="assets\images\products\4.jpg" />
+    <Content Include="assets\images\products\belt.jpg" />
+    <Content Include="assets\images\products\clothes-1.jpg" />
+    <Content Include="assets\images\products\clothes-2.jpg" />
+    <Content Include="assets\images\products\clothes-3.jpg" />
+    <Content Include="assets\images\products\clothes-4.jpg" />
+    <Content Include="assets\images\products\jacket-1.jpg" />
+    <Content Include="assets\images\products\jacket-2.jpg" />
+    <Content Include="assets\images\products\jacket-3.jpg" />
+    <Content Include="assets\images\products\jacket-4.jpg" />
+    <Content Include="assets\images\products\jacket-5.jpg" />
+    <Content Include="assets\images\products\jacket-6.jpg" />
+    <Content Include="assets\images\products\jewellery-1.jpg" />
+    <Content Include="assets\images\products\jewellery-2.jpg" />
+    <Content Include="assets\images\products\jewellery-3.jpg" />
+    <Content Include="assets\images\products\party-wear-1.jpg" />
+    <Content Include="assets\images\products\party-wear-2.jpg" />
+    <Content Include="assets\images\products\perfume.jpg" />
+    <Content Include="assets\images\products\shampoo.jpg" />
+    <Content Include="assets\images\products\shirt-1.jpg" />
+    <Content Include="assets\images\products\shirt-2.jpg" />
+    <Content Include="assets\images\products\shoe-1.jpg" />
+    <Content Include="assets\images\products\shoe-1_1.jpg" />
+    <Content Include="assets\images\products\shoe-2.jpg" />
+    <Content Include="assets\images\products\shoe-2_1.jpg" />
+    <Content Include="assets\images\products\shoe-3.jpg" />
+    <Content Include="assets\images\products\shoe-4.jpg" />
+    <Content Include="assets\images\products\shoe-5.jpg" />
+    <Content Include="assets\images\products\shorts-1.jpg" />
+    <Content Include="assets\images\products\shorts-2.jpg" />
+    <Content Include="assets\images\products\sports-1.jpg" />
+    <Content Include="assets\images\products\sports-2.jpg" />
+    <Content Include="assets\images\products\sports-3.jpg" />
+    <Content Include="assets\images\products\sports-4.jpg" />
+    <Content Include="assets\images\products\sports-5.jpg" />
+    <Content Include="assets\images\products\sports-6.jpg" />
+    <Content Include="assets\images\products\watch-1.jpg" />
+    <Content Include="assets\images\products\watch-2.jpg" />
+    <Content Include="assets\images\products\watch-3.jpg" />
+    <Content Include="assets\images\products\watch-4.jpg" />
+    <Content Include="assets\images\testimonial-1.jpg" />
+    <Content Include="assets\images\womens-banner.jpg" />
+    <Content Include="assets\js\script.js" />
+    <Content Include="Cart.aspx" />
+    <Content Include="categoryWiseProduct.aspx" />
+    <Content Include="css\animate.css" />
+    <Content Include="css\bootstrap-datepicker.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\css\bootstrap-reboot.css" />
+    <Content Include="css\css\mixins\_text-hide.css" />
+    <Content Include="css\flexslider.css" />
+    <Content Include="css\icomoon.css" />
+    <Content Include="css\ionicons.min.css" />
+    <Content Include="css\magnific-popup.css" />
+    <Content Include="css\owl.carousel.min.css" />
+    <Content Include="css\owl.theme.default.min.css" />
+    <Content Include="css\style.css" />
+    <Content Include="dist\css\adminlte.css" />
+    <Content Include="dist\css\adminlte.min.css" />
+    <Content Include="dist\css\alt\adminlte.components.css" />
+    <Content Include="dist\css\alt\adminlte.components.min.css" />
+    <Content Include="dist\css\alt\adminlte.core.css" />
+    <Content Include="dist\css\alt\adminlte.core.min.css" />
+    <Content Include="dist\css\alt\adminlte.extra-components.css" />
+    <Content Include="dist\css\alt\adminlte.extra-components.min.css" />
+    <Content Include="dist\css\alt\adminlte.light.css" />
+    <Content Include="dist\css\alt\adminlte.light.min.css" />
+    <Content Include="dist\css\alt\adminlte.pages.css" />
+    <Content Include="dist\css\alt\adminlte.pages.min.css" />
+    <Content Include="dist\css\alt\adminlte.plugins.css" />
+    <Content Include="dist\css\alt\adminlte.plugins.min.css" />
+    <Content Include="dist\img\AdminLTELogo.png" />
+    <Content Include="dist\img\avatar.png" />
+    <Content Include="dist\img\avatar2.png" />
+    <Content Include="dist\img\avatar3.png" />
+    <Content Include="dist\img\avatar4.png" />
+    <Content Include="dist\img\avatar5.png" />
+    <Content Include="dist\img\boxed-bg.jpg" />
+    <Content Include="dist\img\boxed-bg.png" />
+    <Content Include="dist\img\credit\american-express.png" />
+    <Content Include="dist\img\credit\cirrus.png" />
+    <Content Include="dist\img\credit\mastercard.png" />
+    <Content Include="dist\img\credit\paypal.png" />
+    <Content Include="dist\img\credit\paypal2.png" />
+    <Content Include="dist\img\credit\visa.png" />
+    <Content Include="dist\img\default-150x150.png" />
+    <Content Include="dist\img\icons.png" />
+    <Content Include="dist\img\photo1.png" />
+    <Content Include="dist\img\photo2.png" />
+    <Content Include="dist\img\photo3.jpg" />
+    <Content Include="dist\img\photo4.jpg" />
+    <Content Include="dist\img\prod-1.jpg" />
+    <Content Include="dist\img\prod-2.jpg" />
+    <Content Include="dist\img\prod-3.jpg" />
+    <Content Include="dist\img\prod-4.jpg" />
+    <Content Include="dist\img\prod-5.jpg" />
+    <Content Include="dist\img\user1-128x128.jpg" />
+    <Content Include="dist\img\user2-160x160.jpg" />
+    <Content Include="dist\img\user3-128x128.jpg" />
+    <Content Include="dist\img\user4-128x128.jpg" />
+    <Content Include="dist\img\user5-128x128.jpg" />
+    <Content Include="dist\img\user6-128x128.jpg" />
+    <Content Include="dist\img\user7-128x128.jpg" />
+    <Content Include="dist\img\user8-128x128.jpg" />
+    <Content Include="dist\js\adminlte.js" />
+    <Content Include="dist\js\adminlte.min.js" />
+    <Content Include="dist\js\demo.js" />
+    <Content Include="dist\js\pages\dashboard.js" />
+    <Content Include="dist\js\pages\dashboard2.js" />
+    <Content Include="dist\js\pages\dashboard3.js" />
+    <Content Include="editSubCategory.aspx" />
+    <Content Include="Images\ImageNotAvailable.jpg" />
+    <Content Include="Images\jwelery.jpg" />
+    <Content Include="Images\Noimg.png" />
+    <Content Include="Images\ProductImages\10\LEVI%27S  Slim Men Blue Jeans01.jpeg" />
+    <Content Include="Images\ProductImages\11\LEVI%27S  Slim Men Blue Jeans01.jpeg" />
+    <Content Include="Images\ProductImages\12\LEVI%27S  Slim Men Blue Jeans01.jpeg" />
+    <Content Include="Images\ProductImages\12\LEVI%27S  Slim Men Blue Jeans02.jpeg" />
+    <Content Include="Images\ProductImages\13\LEVI%27S  Slim Men Blue Jeans01.jpeg" />
+    <Content Include="Images\ProductImages\13\LEVI%27S  Slim Men Blue Jeans02.jpeg" />
+    <Content Include="Images\ProductImages\13\LEVI%27S  Slim Men Blue Jeans03.jpeg" />
+    <Content Include="Images\ProductImages\13\LEVI%27S  Slim Men Blue Jeans04.jpeg" />
+    <Content Include="Images\ProductImages\13\LEVI%27S  Slim Men Blue Jeans05.jpeg" />
+    <Content Include="Images\ProductImages\14\JANstyle Footed Western Wear Legging  %28White, Solid%2901.jpeg" />
+    <Content Include="Images\ProductImages\14\JANstyle Footed Western Wear Legging  %28White, Solid%2902.jpeg" />
+    <Content Include="Images\ProductImages\14\JANstyle Footed Western Wear Legging  %28White, Solid%2903.jpeg" />
+    <Content Include="Images\ProductImages\14\JANstyle Footed Western Wear Legging  %28White, Solid%2904.jpeg" />
+    <Content Include="Images\ProductImages\14\JANstyle Footed Western Wear Legging  %28White, Solid%2905.jpeg" />
+    <Content Include="Images\ProductImages\15\SAARA  Woven, Solid, Plain, Embellished Banarasi Cotton Silk Saree  %28Light Blue%2901.jpeg" />
+    <Content Include="Images\ProductImages\15\SAARA  Woven, Solid, Plain, Embellished Banarasi Cotton Silk Saree  %28Light Blue%2902.jpeg" />
+    <Content Include="Images\ProductImages\15\SAARA  Woven, Solid, Plain, Embellished Banarasi Cotton Silk Saree  %28Light Blue%2903.jpeg" />
+    <Content Include="Images\ProductImages\15\SAARA  Woven, Solid, Plain, Embellished Banarasi Cotton Silk Saree  %28Light Blue%2904.jpeg" />
+    <Content Include="Images\ProductImages\15\SAARA  Woven, Solid, Plain, Embellished Banarasi Cotton Silk Saree  %28Light Blue%2905.jpeg" />
+    <Content Include="Images\ProductImages\1\BESPOQE  Men Regular Fit Solid Casual Shirt01.jpeg" />
+    <Content Include="Images\ProductImages\1\BESPOQE  Men Regular Fit Solid Casual Shirt02.jpeg" />
+    <Content Include="Images\ProductImages\1\BESPOQE  Men Regular Fit Solid Casual Shirt03.jpeg" />
+    <Content Include="Images\ProductImages\1\BESPOQE  Men Regular Fit Solid Casual Shirt04.jpeg" />
+    <Content Include="Images\ProductImages\1\BESPOQE  Men Regular Fit Solid Casual Shirt05.jpeg" />
+    <Content Include="Images\ProductImages\2\HIGHLANDER  Men Slim Fit Checkered Spread Collar Casual Shirt01.jpeg" />
+    <Content Include="Images\ProductImages\2\HIGHLANDER  Men Slim Fit Checkered Spread Collar Casual Shirt02.jpeg" />
+    <Content Include="Images\ProductImages\2\HIGHLANDER  Men Slim Fit Checkered Spread Collar Casual Shirt03.jpeg" />
+    <Content Include="Images\ProductImages\2\HIGHLANDER  Men Slim Fit Checkered Spread Collar Casual Shirt04.jpeg" />
+    <Content Include="Images\ProductImages\2\HIGHLANDER  Men Slim Fit Checkered Spread Collar Casual Shirt05.jpeg" />
+    <Content Include="Images\ProductImages\3\FASHION DEPTH  Women Embroidered Rayon Straight Kurta  %28Pink%2901.jpeg" />
+    <Content Include="Images\ProductImages\3\FASHION DEPTH  Women Embroidered Rayon Straight Kurta  %28Pink%2902.jpeg" />
+    <Content Include="Images\ProductImages\3\FASHION DEPTH  Women Embroidered Rayon Straight Kurta  %28Pink%2903.jpeg" />
+    <Content Include="Images\ProductImages\3\FASHION DEPTH  Women Embroidered Rayon Straight Kurta  %28Pink%2904.jpeg" />
+    <Content Include="Images\ProductImages\3\FASHION DEPTH  Women Embroidered Rayon Straight Kurta  %28Pink%2905.jpeg" />
+    <Content Include="Images\ProductImages\4\Oomph!  Casual Butterfly Sleeve Floral Print Women Multicolor Top01.jpeg" />
+    <Content Include="Images\ProductImages\4\Oomph!  Casual Butterfly Sleeve Floral Print Women Multicolor Top02.jpeg" />
+    <Content Include="Images\ProductImages\4\Oomph!  Casual Butterfly Sleeve Floral Print Women Multicolor Top03.jpeg" />
+    <Content Include="Images\ProductImages\4\Oomph!  Casual Butterfly Sleeve Floral Print Women Multicolor Top04.jpeg" />
+    <Content Include="Images\ProductImages\4\Oomph!  Casual Butterfly Sleeve Floral Print Women Multicolor Top05.jpeg" />
+    <Content Include="Images\ProductImages\5\CLASSIO FASHION  Regular Fit Men Blue Pure Cotton Trousers01.jpeg" />
+    <Content Include="Images\ProductImages\5\CLASSIO FASHION  Regular Fit Men Blue Pure Cotton Trousers02.jpeg" />
+    <Content Include="Images\ProductImages\5\CLASSIO FASHION  Regular Fit Men Blue Pure Cotton Trousers03.jpeg" />
+    <Content Include="Images\ProductImages\5\CLASSIO FASHION  Regular Fit Men Blue Pure Cotton Trousers04.jpeg" />
+    <Content Include="Images\ProductImages\5\CLASSIO FASHION  Regular Fit Men Blue Pure Cotton Trousers05.jpeg" />
+    <Content Include="Images\ProductImages\5\Tshirt01.jpg" />
+    <Content Include="Images\ProductImages\6\Hoodies01.jpg" />
+    <Content Include="Images\ProductImages\6\Hoodies02.jpg" />
+    <Content Include="Images\ProductImages\6\LEVI%27S  Slim Men Blue Jeans01.jpeg" />
+    <Content Include="Images\ProductImages\6\Peter England  Men blue check Casual Shirt01.jpeg" />
+    <Content Include="Images\ProductImages\6\Peter England  Men blue check Casual Shirt02.jpeg" />
+    <Content Include="Images\ProductImages\6\Peter England  Men blue check Casual Shirt03.jpeg" />
+    <Content Include="Images\ProductImages\6\Peter England  Men blue check Casual Shirt04.jpeg" />
+    <Content Include="Images\ProductImages\6\Peter England  Men blue check Casual Shirt05.jpeg" />
+    <Content Include="Images\ProductImages\7\LEVI%27S  Slim Men Blue Jeans01.jpeg" />
+    <Content Include="Images\ProductImages\7\Peter England  Men pink check Casual Shirt01.jpeg" />
+    <Content Include="Images\ProductImages\7\Peter England  Men pink check Casual Shirt02.jpeg" />
+    <Content Include="Images\ProductImages\7\Peter England  Men pink check Casual Shirt03.jpeg" />
+    <Content Include="Images\ProductImages\7\Peter England  Men pink check Casual Shirt04.jpeg" />
+    <Content Include="Images\ProductImages\7\Peter England  Men pink check Casual Shirt05.jpeg" />
+    <Content Include="Images\ProductImages\7\Tshirt01.jpg" />
+    <Content Include="Images\ProductImages\7\Tshirt02.jpg" />
+    <Content Include="Images\ProductImages\8\Flying Machine navy blue casual Shirts01.jpeg" />
+    <Content Include="Images\ProductImages\8\Flying Machine navy blue casual Shirts02.jpeg" />
+    <Content Include="Images\ProductImages\8\Flying Machine navy blue casual Shirts03.jpeg" />
+    <Content Include="Images\ProductImages\8\Flying Machine navy blue casual Shirts04.jpeg" />
+    <Content Include="Images\ProductImages\8\Flying Machine navy blue casual Shirts05.jpeg" />
+    <Content Include="Images\ProductImages\8\JWELERY01.jpg" />
+    <Content Include="Images\ProductImages\8\LEVI%27S  Slim Men Blue Jeans01.jpeg" />
+    <Content Include="Images\ProductImages\9\LEVI%27S  Slim Men Blue Jeans01.jpeg" />
+    <Content Include="Images\ProductImages\9\Watch01.jpg" />
+    <Content Include="Images\ProductImages\9\Watch02.jpg" />
+    <Content Include="Images\ProductImages\9\Watch03.jpg" />
+    <Content Include="Images\sf.png" />
+    <Content Include="Images\Shoes.jpeg" />
+    <Content Include="Images\tshirt.jpeg" />
+    <Content Include="Images\Watch.jpg" />
+    <Content Include="Plugins\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="Plugins\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Plugins\bootstrap\js\bootstrap.js" />
+    <Content Include="Plugins\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Plugins\daterangepicker\daterangepicker.css" />
+    <Content Include="Plugins\daterangepicker\daterangepicker.js" />
+    <Content Include="Plugins\fontawesome-free\css\all.css" />
+    <Content Include="Plugins\fontawesome-free\css\all.min.css" />
+    <Content Include="Plugins\fontawesome-free\css\brands.css" />
+    <Content Include="Plugins\fontawesome-free\css\brands.min.css" />
+    <Content Include="Plugins\fontawesome-free\css\fontawesome.css" />
+    <Content Include="Plugins\fontawesome-free\css\fontawesome.min.css" />
+    <Content Include="Plugins\fontawesome-free\css\regular.css" />
+    <Content Include="Plugins\fontawesome-free\css\regular.min.css" />
+    <Content Include="Plugins\fontawesome-free\css\solid.css" />
+    <Content Include="Plugins\fontawesome-free\css\solid.min.css" />
+    <Content Include="Plugins\fontawesome-free\css\svg-with-js.css" />
+    <Content Include="Plugins\fontawesome-free\css\svg-with-js.min.css" />
+    <Content Include="Plugins\fontawesome-free\css\v4-shims.css" />
+    <Content Include="Plugins\fontawesome-free\css\v4-shims.min.css" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-brands-400.svg" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-regular-400.svg" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-solid-900.svg" />
+    <Content Include="Plugins\icheck-bootstrap\icheck-bootstrap.css" />
+    <Content Include="Plugins\icheck-bootstrap\icheck-bootstrap.min.css" />
+    <Content Include="Plugins\jquery\jquery.js" />
+    <Content Include="Plugins\jquery\jquery.min.js" />
+    <Content Include="Plugins\jquery\jquery.slim.js" />
+    <Content Include="Plugins\jquery\jquery.slim.min.js" />
+    <Content Include="Plugins\jqvmap\jquery.vmap.js" />
+    <Content Include="Plugins\jqvmap\jquery.vmap.min.js" />
+    <Content Include="Plugins\jqvmap\jqvmap.css" />
+    <Content Include="Plugins\jqvmap\jqvmap.min.css" />
+    <Content Include="Plugins\jqvmap\maps\continents\jquery.vmap.africa.js" />
+    <Content Include="Plugins\jqvmap\maps\continents\jquery.vmap.asia.js" />
+    <Content Include="Plugins\jqvmap\maps\continents\jquery.vmap.australia.js" />
+    <Content Include="Plugins\jqvmap\maps\continents\jquery.vmap.europe.js" />
+    <Content Include="Plugins\jqvmap\maps\continents\jquery.vmap.north-america.js" />
+    <Content Include="Plugins\jqvmap\maps\continents\jquery.vmap.south-america.js" />
+    <Content Include="Plugins\jqvmap\maps\jquery.vmap.algeria.js" />
+    <Content Include="Plugins\jqvmap\maps\jquery.vmap.argentina.js" />
+    <Content Include="Plugins\jqvmap\maps\jquery.vmap.brazil.js" />
+    <Content Include="Plugins\jqvmap\maps\jquery.vmap.canada.js" />
+    <Content Include="Plugins\jqvmap\maps\jquery.vmap.croatia.js" />
+    <Content Include="Plugins\jqvmap\maps\jquery.vmap.europe.js" />
+    <Content Include="Plugins\jqvmap\maps\jquery.vmap.france.js" />
+    <Content Include="Plugins\jqvmap\maps\jquery.vmap.germany.js" />
+    <Content Include="Plugins\jqvmap\maps\jquery.vmap.greece.js" />
+    <Content Include="Plugins\jqvmap\maps\jquery.vmap.indonesia.js" />
+    <Content Include="Plugins\jqvmap\maps\jquery.vmap.iran.js" />
+    <Content Include="Plugins\jqvmap\maps\jquery.vmap.iraq.js" />
+    <Content Include="Plugins\jqvmap\maps\jquery.vmap.new_regions_france.js" />
+    <Content Include="Plugins\jqvmap\maps\jquery.vmap.russia.js" />
+    <Content Include="Plugins\jqvmap\maps\jquery.vmap.serbia.js" />
+    <Content Include="Plugins\jqvmap\maps\jquery.vmap.tunisia.js" />
+    <Content Include="Plugins\jqvmap\maps\jquery.vmap.turkey.js" />
+    <Content Include="Plugins\jqvmap\maps\jquery.vmap.ukraine.js" />
+    <Content Include="Plugins\jqvmap\maps\jquery.vmap.usa.counties.js" />
+    <Content Include="Plugins\jqvmap\maps\jquery.vmap.usa.districts.js" />
+    <Content Include="Plugins\jqvmap\maps\jquery.vmap.usa.js" />
+    <Content Include="Plugins\jqvmap\maps\jquery.vmap.world.js" />
+    <Content Include="Plugins\overlayScrollbars\css\OverlayScrollbars.css" />
+    <Content Include="Plugins\overlayScrollbars\css\OverlayScrollbars.min.css" />
+    <Content Include="Plugins\overlayScrollbars\js\jquery.overlayScrollbars.js" />
+    <Content Include="Plugins\overlayScrollbars\js\jquery.overlayScrollbars.min.js" />
+    <Content Include="Plugins\overlayScrollbars\js\OverlayScrollbars.js" />
+    <Content Include="Plugins\overlayScrollbars\js\OverlayScrollbars.min.js" />
+    <Content Include="Plugins\tempusdominus-bootstrap-4\css\tempusdominus-bootstrap-4.css" />
+    <Content Include="Plugins\tempusdominus-bootstrap-4\css\tempusdominus-bootstrap-4.min.css" />
+    <Content Include="Plugins\tempusdominus-bootstrap-4\js\tempusdominus-bootstrap-4.js" />
+    <Content Include="Plugins\tempusdominus-bootstrap-4\js\tempusdominus-bootstrap-4.min.js" />
+    <Content Include="Product.aspx" />
+    <Content Include="ProductView.aspx" />
+    <Content Include="Report.aspx" />
+    <Content Include="style-prefix.css" />
+    <Content Include="userDetail.aspx" />
+    <Content Include="UserHome.aspx" />
+    <Content Include="userList.asmx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="addBrand.aspx.cs">
+      <DependentUpon>addBrand.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addBrand.aspx.designer.cs">
+      <DependentUpon>addBrand.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addCategory.aspx.cs">
+      <DependentUpon>addCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addCategory.aspx.designer.cs">
+      <DependentUpon>addCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddProduct.aspx.cs">
+      <DependentUpon>AddProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddProduct.aspx.designer.cs">
+      <DependentUpon>AddProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addSize.aspx.cs">
+      <DependentUpon>addSize.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addSize.aspx.designer.cs">
+      <DependentUpon>addSize.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addSubCategory.aspx.cs">
+      <DependentUpon>addSubCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addSubCategory.aspx.designer.cs">
+      <DependentUpon>addSubCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adminAction.asmx.cs">
+      <DependentUpon>adminAction.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="adminHome.aspx.cs">
+      <DependentUpon>adminHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminHome.aspx.designer.cs">
+      <DependentUpon>adminHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminMaster.Master.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminMaster.Master.designer.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="categoryWiseProduct.aspx.cs">
+      <DependentUpon>categoryWiseProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="categoryWiseProduct.aspx.designer.cs">
+      <DependentUpon>categoryWiseProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="editSubCategory.aspx.cs">
+      <DependentUpon>editSubCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="editSubCategory.aspx.designer.cs">
+      <DependentUpon>editSubCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Product.aspx.cs">
+      <DependentUpon>Product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Product.aspx.designer.cs">
+      <DependentUpon>Product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductView.aspx.cs">
+      <DependentUpon>ProductView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductView.aspx.designer.cs">
+      <DependentUpon>ProductView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report.aspx.cs">
+      <DependentUpon>Report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report.aspx.designer.cs">
+      <DependentUpon>Report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="userDetail.aspx.cs">
+      <DependentUpon>userDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="userDetail.aspx.designer.cs">
+      <DependentUpon>userDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserHome.aspx.cs">
+      <DependentUpon>UserHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserHome.aspx.designer.cs">
+      <DependentUpon>UserHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="userList.asmx.cs">
+      <DependentUpon>userList.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserMain.Master.cs">
+      <DependentUpon>UserMain.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserMain.Master.designer.cs">
+      <DependentUpon>UserMain.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\ProductImages\3\Peter England  Men Checkered Casual Shirt01" />
+    <Content Include="Images\ProductImages\3\Peter England  Men Checkered Casual Shirt02" />
+    <Content Include="Images\ProductImages\3\Peter England  Men Checkered Casual Shirt03" />
+    <Content Include="Images\ProductImages\3\Peter England  Men Checkered Casual Shirt04" />
+    <Content Include="Images\ProductImages\3\Peter England  Men Checkered Casual Shirt05" />
+    <Content Include="Images\ProductImages\4\Peter England  Men Checkered Casual Shirt01" />
+    <Content Include="Images\ProductImages\4\Peter England  Men Checkered Casual Shirt02" />
+    <Content Include="Images\ProductImages\4\Peter England  Men Checkered Casual Shirt03" />
+    <Content Include="Images\ProductImages\4\Peter England  Men Checkered Casual Shirt04" />
+    <Content Include="Images\ProductImages\4\Peter England  Men Checkered Casual Shirt05" />
+    <Content Include="Images\ProductImages\5\Peter England  Men Solid Formal Shirt01" />
+    <Content Include="Images\ProductImages\5\Peter England  Men Solid Formal Shirt02" />
+    <Content Include="Images\ProductImages\5\Peter England  Men Solid Formal Shirt03" />
+    <Content Include="Images\ProductImages\5\Peter England  Men Solid Formal Shirt04" />
+    <Content Include="Images\ProductImages\5\Peter England  Men Solid Formal Shirt05" />
+    <Content Include="Images\Thumbs.db" />
+    <Content Include="css\.DS_Store" />
+    <Content Include="css\css\.DS_Store" />
+    <Content Include="css\css\mixins\.DS_Store" />
+    <Content Include="css\style.css.map" />
+    <Content Include="AdminMaster.Master" />
+    <Content Include="dist\css\adminlte.css.map" />
+    <Content Include="dist\css\adminlte.min.css.map" />
+    <Content Include="dist\css\alt\adminlte.components.css.map" />
+    <Content Include="dist\css\alt\adminlte.components.min.css.map" />
+    <Content Include="dist\css\alt\adminlte.core.css.map" />
+    <Content Include="dist\css\alt\adminlte.core.min.css.map" />
+    <Content Include="dist\css\alt\adminlte.extra-components.css.map" />
+    <Content Include="dist\css\alt\adminlte.extra-components.min.css.map" />
+    <Content Include="dist\css\alt\adminlte.light.css.map" />
+    <Content Include="dist\css\alt\adminlte.light.min.css.map" />
+    <Content Include="dist\css\alt\adminlte.pages.css.map" />
+    <Content Include="dist\css\alt\adminlte.pages.min.css.map" />
+    <Content Include="dist\css\alt\adminlte.plugins.css.map" />
+    <Content Include="dist\css\alt\adminlte.plugins.min.css.map" />
+    <Content Include="dist\js\.eslintrc.json" />
+    <Content Include="dist\js\adminlte.js.map" />
+    <Content Include="dist\js\adminlte.min.js.map" />
+    <None Include="packages.config" />
+    <Content Include="UserMain.Master" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-brands-400.eot" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-brands-400.ttf" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-brands-400.woff" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-brands-400.woff2" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-regular-400.eot" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-regular-400.ttf" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-regular-400.woff" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-regular-400.woff2" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-solid-900.eot" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-solid-900.ttf" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-solid-900.woff" />
+    <Content Include="Plugins\fontawesome-free\webfonts\fa-solid-900.woff2" />
+    <Content Include="Plugins\icheck-bootstrap\LICENSE" />
+    <Content Include="Plugins\jquery\jquery.min.map" />
+    <Content Include="Plugins\jquery\jquery.slim.min.map" />
+    <Content Include="Plugins\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="Plugins\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Plugins\bootstrap\js\bootstrap.js.map" />
+    <Content Include="Plugins\bootstrap\js\bootstrap.min.js.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49848</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44383/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
