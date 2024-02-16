@@ -15,15 +15,6 @@ namespace AxcessoNexHub
     {
 
         /// <summary>
-        /// RequiredFieldValidatorSize control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorSize;
-
-        /// <summary>
         /// txtSize control.
         /// </summary>
         /// <remarks>
@@ -42,24 +33,6 @@ namespace AxcessoNexHub
         protected global::System.Web.UI.WebControls.DropDownList ddlBrand;
 
         /// <summary>
-        /// RequiredFieldValidatorddlBrand control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorddlBrand;
-
-        /// <summary>
-        /// RequiredFieldValidatorCategory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorCategory;
-
-        /// <summary>
         /// ddlCategory control.
         /// </summary>
         /// <remarks>
@@ -67,15 +40,6 @@ namespace AxcessoNexHub
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCategory;
-
-        /// <summary>
-        /// RequiredFieldValidatorSubCategory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorSubCategory;
 
         /// <summary>
         /// ddlSubCategory control.
@@ -87,15 +51,6 @@ namespace AxcessoNexHub
         protected global::System.Web.UI.WebControls.DropDownList ddlSubCategory;
 
         /// <summary>
-        /// RequiredFieldValidatorGender control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorGender;
-
-        /// <summary>
         /// ddlGender control.
         /// </summary>
         /// <remarks>
@@ -105,21 +60,57 @@ namespace AxcessoNexHub
         protected global::System.Web.UI.WebControls.DropDownList ddlGender;
 
         /// <summary>
-        /// btnAddSize control.
+        /// txtId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddSize;
+        protected global::System.Web.UI.WebControls.TextBox txtId;
 
         /// <summary>
-        /// rptrSize control.
+        /// txtNewSize control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptrSize;
+        protected global::System.Web.UI.WebControls.TextBox txtNewSize;
+
+        /// <summary>
+        /// ddlUpdateBrand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlUpdateBrand;
+
+        /// <summary>
+        /// ddlUpdateCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlUpdateCategory;
+
+        /// <summary>
+        /// ddlUpdateSubCat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlUpdateSubCat;
+
+        /// <summary>
+        /// ddlUpdateGender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlUpdateGender;
     }
 }

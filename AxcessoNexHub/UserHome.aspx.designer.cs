@@ -51,6 +51,15 @@ namespace AxcessoNexHub
         protected global::System.Web.UI.WebControls.Label lblAllProductCount;
 
         /// <summary>
+        /// rptrCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptrCategory;
+
+        /// <summary>
         /// rptrProducts control.
         /// </summary>
         /// <remarks>

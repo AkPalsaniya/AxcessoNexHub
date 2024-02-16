@@ -21,134 +21,53 @@ namespace AxcessoNexHub
             }
         }
 
-        //private void gvBindBrand()
+        
+
+        //protected void btnAddBrand_Click(object sender, EventArgs e)
         //{
-        //    using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["MyShoppingDB"].ConnectionString))
+        //    if (txtBrand.Text != null && txtBrand.Text != "" && txtBrand.Text != string.Empty)
         //    {
-        //        using (SqlCommand cmd = new SqlCommand("select * from tblBrands", con))
+        //        using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["MyShoppingDB"].ConnectionString))
         //        {
-        //            using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
-        //            {
-        //                DataTable dt = new DataTable();
-        //                sda.Fill(dt);
-        //                //rptrBrands.DataSource = dt;
-        //                //rptrBrands.DataBind();
-        //                gvBrand.DataSource = dt;
-        //                gvBrand.DataBind();
-        //            }
+        //            con.Open();
+        //            SqlCommand cmd = new SqlCommand("Insert into tblBrands(Name) Values('" + txtBrand.Text + "')", con);
+        //            cmd.ExecuteNonQuery();
+
+        //            Response.Write("<script> alert('Brand Added Successfully ');  </script>");
+        //            txtBrand.Text = string.Empty;
+
+        //            con.Close();
+        //            //lblMsg.Text = "Registration Successfully done";
+        //            //lblMsg.ForeColor = System.Drawing.Color.Green;
+        //            txtBrand.Focus();
         //        }
         //    }
-        //    gvBrand.UseAccessibleHeader = true;
-        //    gvBrand.HeaderRow.TableSection = TableRowSection.TableHeader;
         //}
 
-        protected void btnAddBrand_Click(object sender, EventArgs e)
-        {
-            if (txtBrand.Text != null && txtBrand.Text != "" && txtBrand.Text != string.Empty)
-            {
-                using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["MyShoppingDB"].ConnectionString))
-                {
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand("Insert into tblBrands(Name) Values('" + txtBrand.Text + "')", con);
-                    cmd.ExecuteNonQuery();
 
-                    Response.Write("<script> alert('Brand Added Successfully ');  </script>");
-                    txtBrand.Text = string.Empty;
-
-                    con.Close();
-                    //lblMsg.Text = "Registration Successfully done";
-                    //lblMsg.ForeColor = System.Drawing.Color.Green;
-                    txtBrand.Focus();
-                }
-            }
-        }
-
-        //protected void gvBrand_RowEditing(object sender, GridViewEditEventArgs e)
-        //{
-        //    gvBrand.EditIndex = e.NewEditIndex;
-        //    gvBindBrand();
-        //}
-
-        //protected void gvBrand_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-        //{
-        //    gvBrand.EditIndex = -1;
-        //    gvBindBrand();
-        //}
-
-        //protected void gvBrand_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        //{
-        //    SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["MyShoppingDB"].ConnectionString);
-        //    con.Open();
-        //    //int id = Convert.ToInt16(gvBrand.DataKeys[e.RowIndex].Values["BrandID"].ToString());
-        //    SqlCommand cmd = new SqlCommand("delete tblBrands where BrandID=@id", con);
-        //    cmd.Parameters.AddWithValue("@id", e.Keys["BrandID"]);
-        //    //cmd.Parameters.AddWithValue("@name", e.NewValues["Name"]);
-        //    int a = cmd.ExecuteNonQuery();
-        //    if (a > 0)
-        //    {
-        //        Response.Write("<script> alert('Brand Edit Successfully ');</script>");
-        //        //Response.Write("Succes");
-        //    }
-        //    else
-        //    {
-        //        Response.Write("<script> alert('Error Occer, Try Again');</script>");
-        //    }
-        //    //txtBrand.Text = string.Empty;
-        //    con.Close();
-        //    gvBrand.EditIndex = -1;
-        //    gvBindBrand();
-        //}
-
-        //protected void gvBrand_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        //{
-        //    SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["MyShoppingDB"].ConnectionString);
-        //    con.Open();
-        //    SqlCommand cmd = new SqlCommand("update tblBrands set Name=@name where BrandID=@id", con);
-        //    cmd.Parameters.AddWithValue("@id", e.NewValues["BrandID"]);
-        //    cmd.Parameters.AddWithValue("@name", e.NewValues["Name"]);
-        //    int a = cmd.ExecuteNonQuery();
-        //    if (a > 0)
-        //    {
-        //        Response.Write("<script> alert('Brand Deleted Successfully ');</script>");
-        //        Response.Write("Succes");
-        //    }
-        //    else
-        //    {
-        //        Response.Write("Error Occer, try Again");
-
-        //    }
-        //    //txtBrand.Text = string.Empty;
-        //    con.Close();
-        //    gvBrand.EditIndex = -1;
-        //    gvBindBrand(); 
-        //}
-
+        //Bind Data In Modal Popup
         [WebMethod]
-        public static object GetBrandById(int id)
+        public static object GetDataById(int id)
         {
 
             object data = null;
             int Id = id;
             try
             {
-                string strCon = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
+                string strCon = ConfigurationManager.ConnectionStrings["MyShoppingDB"].ConnectionString;
+                //string strCon = @"Data Source=.\SQLEXPRESS;Initial Catalog=MyEShoppingDB2;Integrated Security=True;Encrypt=True";
 
                 SqlConnection con = new SqlConnection(strCon);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("select * from tblBrands where Id = @Id", con);
+                SqlCommand cmd = new SqlCommand("Select * from tblBrands where BrandID = @Id", con);
                 cmd.Parameters.AddWithValue("@Id", id);
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
                     data = new
                     {
-                        BrandID = reader["BrandID"],
-                        Name = reader["Name"],
-                        //DOB = reader["DOB"],
-                        //Gender = reader["Gender"],
-                        //City = reader["City"],
-                        //MobileNo = reader["MobileNo"],
-                        //DrName = reader["DrName"],
+                        BrandID = Convert.ToInt32(reader["BrandID"]),
+                        Name = reader["Name"].ToString(),
                     };
                 }
             }
@@ -159,6 +78,64 @@ namespace AxcessoNexHub
             }
             return data;
         }
+
+
+       //Edit Brand From Popup
+        [WebMethod]
+        public static string saveBrandDetail(string Id, string Name)
+        {
+            int id =Convert.ToInt16(Id);
+            string strCon = ConfigurationManager.ConnectionStrings["MyShoppingDB"].ConnectionString;
+            SqlConnection con = new SqlConnection(strCon);
+            string msg = "";
+
+            String Query = "UPDATE tblBrands SET Name='" + Name + "' WHERE BrandID =@Id";
+            con.Open();
+
+
+            SqlCommand cmd = new SqlCommand(Query, con);
+            cmd.Parameters.AddWithValue("Id", id);
+            int i = cmd.ExecuteNonQuery();
+            if (i > 0)
+            {
+                msg = "true";
+            }
+            else
+            {
+                msg = "false";
+            }
+            return msg;
+        }
+
+        //Add New Brand Using Popup
+        [WebMethod]
+        public static string addNewBrand(string Name)
+        {
+            
+            string strCon = ConfigurationManager.ConnectionStrings["MyShoppingDB"].ConnectionString;
+            SqlConnection con = new SqlConnection(strCon);
+            string msg = "";
+
+            String Query = "Insert Into tblBrands Values('" + Name + "')";
+            con.Open();
+
+
+            SqlCommand cmd = new SqlCommand(Query, con);
+            
+            int i = cmd.ExecuteNonQuery();
+            if (i > 0)
+            {
+                msg = "true";
+            }
+            else
+            {
+                msg = "false";
+            }
+            return msg;
+        }
+
+
+
     }
 }
  

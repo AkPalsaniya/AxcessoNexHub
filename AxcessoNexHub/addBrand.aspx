@@ -14,7 +14,7 @@
             $.ajax({
                 type: "POST",
                 dataType: "json",
-                url: "adminAction.asmx/GetBrandById",
+                url: "adminAction.asmx/getBrand",
                 success: function (data) {
                     var datatableVariable = $('#tblUserDetail').DataTable({
                         data: data,
@@ -30,9 +30,9 @@
                             {
                                 'data': null,
                                 'render': function (data, type, row) {
-                                    return '<button type="button" onclick="editRow(' + row.Id + ')" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>' +
-                                        '&nbsp;' +
-                                        '<button type="button" onclick="deletRow(' + row.Id + ')" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></button>';
+                                    return '<button type="button" onclick="editRow(' + row.BrandID + ')" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>';
+                                        //'&nbsp;' +
+                                        //'<button type="button" onclick="deletRow(' + row.BrandID + ')" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></button>';
 
                                 }
                             }
@@ -64,6 +64,15 @@
         });
     </script>
 
+
+    <%-- Add Button Click --%>
+    <script>
+        function popToAddBrand() {
+            $("#exampleModalCenter").modal("show");
+            event.preventDefault();  // Prevent the default button click behavior
+        }
+    </script>
+
     <%-- Edit Button Script --%>
     <script>
         function editRow(id) {
@@ -72,72 +81,53 @@
 
             $.ajax({
                 type: "POST",
-                url: "addBrand .aspx/GetDataById",
+                url: "addBrand.aspx/GetDataById",
                 data: JSON.stringify({ id: id }),
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (data) {
-                    if (data != null) {
+                    console.log("BrandID: " + data.d.BrandID);
 
+                    if (data != null) {
                         $('#<%= txtId.ClientID %>').val(data.d.BrandID);
                         $('#<%= txtName.ClientID %>').val(data.d.Name);
-                    <%--$('#<%= txtDOB.ClientID %>').val(data.d.DOB);
-                    $('#<%= ddlGender.ClientID %>').val(data.d.Gender);
-                    $('#<%= txtCity.ClientID %>').val(data.d.City);
-                    $('#<%= txtMobileNo.ClientID %>').val(data.d.MobileNo);
-                    $('#<%= ddlDrName.ClientID %>').val(data.d.DrName);--%>
-
+                    } else {
+                        console.log("No valid data received for ID: " + id);
                     }
-                    else {
-                        console.log("No valid data received for ID: " + Id);
-                    }
+                },
+                error: function (error) {
+                    console.error("Error in AJAX request:", error);
                 }
             });
-            return false;
 
+            return false;
         }
     </script>
+
+
+
 
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container ">
         <br />
-        <br />
+        
+        <div class="d-flex justify-content-between">
+            <span style="font-size: 30px">
+                <strong>Brands</strong>
+            </span>
+            <span>
+                <%--<asp:Button ID="btnAddBrand" CssClass="btn btn-success" runat="server" Text="Add" OnClientClick="popToAddBrand();"/>--%>
+                <button id="btnAddBrand" class="btn btn-success" onclick="popToAddBrand()">Add</button>
 
-        <div class="form-horizontal ">
-            <h2>Add Brand</h2>
-            <hr />
-            <div class="form-group">
-                <asp:Label ID="Label1" CssClass="col-md-2 control-label " runat="server" Text="BrandName"></asp:Label>
-                <div class="col-md-3 ">
-                    <asp:TextBox ID="txtBrand" CssClass="form-control" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorBrandName" runat="server" CssClass="text-danger " ErrorMessage="*plz Enter Brandname" ControlToValidate="txtBrand" ForeColor="Red"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-2 "></div>
-                <div class="col-md-4 ">
-                    <asp:Button ID="btnAddBrand" CssClass="btn btn-success " runat="server" Text="Add" OnClick="btnAddBrand_Click" />
-                </div>
-            </div>
+            </span>
         </div>
-
-        <h1>Brands</h1>
         <hr />
 
         <div class="panel panel-default">
             <div class="panel-heading">All Brands</div>
 
-            <%--<asp:GridView ID="gvBrand" runat="server" DataKeyNames="BrandID" AutoGenerateColumns="False" OnRowCancelingEdit="gvBrand_RowCancelingEdit" OnRowDeleting="gvBrand_RowDeleting" OnRowEditing="gvBrand_RowEditing" OnRowUpdating="gvBrand_RowUpdating">
-                <Columns>
-                    <asp:BoundField HeaderText="Id" DataField="BrandID" />
-                    <asp:BoundField HeaderText="Brand Name" DataField="Name" />
-                    <asp:CommandField ShowEditButton="true" ShowDeleteButton="false" ButtonType="Link" HeaderText="Action" CausesValidation="false" />
-
-                </Columns>
-            </asp:GridView>--%>
         </div>
 
         <table id="tblUserDetail" style="max-width: 100%; border: 1px solid #C6C4C3">
@@ -155,92 +145,138 @@
     </div>
 
     <%-- Modal Popup --%>
-    <div class="modal fade" id="MyPopup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" id="MyPopup" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document" style="width: fit-content">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Edit Brand</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <%-- Modal Body --%>
                 <div class="modal-body">
-                    <div id="divToPrint" class="divToPrint" runat="server">
+                    <table class="popTbl">
+                        <tr>
+                            <td><strong>Brand Id</strong></td>
+                            <td>
+                                <asp:TextBox ID="txtId" runat="server" ReadOnly="true"></asp:TextBox>
+                            </td>
+                        </tr>
 
-                        <table class="popTbl">
-                            <tr>
-                                <td class="tblTd" colspan="2"><strong>PATIENT REGISTRATION FORM<br />
-                                </strong></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Id :</strong></td>
-                                <td>
-                                    <asp:TextBox ID="txtId" runat="server"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><strong>NAME :</strong></td>
-                                <td>
-                                    <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+                        <tr>
+                            <td><strong>NAME :</strong></td>
+                            <td>
+                                <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><strong>DOB :</strong></td>
-                                <td>
-                                    <asp:TextBox ID="txtDOB" runat="server" TextMode="Date" Width="100%"></asp:TextBox>
+                            </td>
+                        </tr>
 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><strong>GENDER :</strong></td>
-                                <td>
-                                    <asp:DropDownList ID="ddlGender" runat="server" Width="100%">
-                                        <asp:ListItem>Male</asp:ListItem>
-                                        <asp:ListItem>Female</asp:ListItem>
-                                    </asp:DropDownList>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><strong>CITY :</strong></td>
-                                <td>
-                                    <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="rfvCity" runat="server" ControlToValidate="txtCity"
-                                        ErrorMessage="*" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><strong>MOBILE NO :</strong></td>
-                                <td>
-                                    <asp:TextBox ID="txtMobileNo" runat="server" TextMode="Number"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="rfvMobileNo" runat="server" ControlToValidate="txtMobileNo"
-                                        ErrorMessage="*" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><strong>DR NAME :</strong></td>
-                                <td>
-                                    <asp:DropDownList ID="ddlDrName" runat="server" Width="100%">
-                                        <asp:ListItem>Dr A</asp:ListItem>
-                                        <asp:ListItem>Dr B</asp:ListItem>
-                                        <asp:ListItem>Dr C</asp:ListItem>
-                                    </asp:DropDownList>
-                                </td>
-                            </tr>
-
-                        </table>
-                    </div>
-
+                    </table>
                 </div>
-                <div class="modal-footer" style="display: flex; justify-content: center; gap: 20px">
-                    <%--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                 <button type="button" onclick="AddPatientDetail();" class="btn btn-primary">Save changes</button>--%>
-                    <%--<asp:Button ID="btnGeneratePdf" Text="pdf" runat="server" class="btn btn-primary" OnClick="btnGeneratePdf_Click" />--%>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="editBrandDetail();">Save changes</button>
                 </div>
             </div>
         </div>
-
     </div>
+
+
+    <%-- Add Button Modal --%>
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document" style="width:fit-content">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Add Brand</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="popTbl">
+                        <tr>
+                            <td><strong>Brand Name</strong></td>
+                            <td>
+                                <asp:TextBox ID="txtAddBrand" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="addBrand()">Add Brand</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <%-- Edit Brand From Popup --%>
+    <script type="text/javascript">
+        function editBrandDetail() {
+
+            var BrandID = document.getElementById('<%= txtId.ClientID %>').value;
+            var Name = document.getElementById('<%= txtName.ClientID %>').value;
+
+            if (Name !== '') {
+                $.ajax({
+                    type: 'POST',
+                    url: 'addBrand.aspx/saveBrandDetail',
+                    data: "{'Id':'" + BrandID + "','Name':'" + Name + "'}",
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        var obj = data.d;
+                        if (obj === 'true') {
+                            jQuery("#MyPopup").modal("hide");
+                            alert("Data Saved Successfully");
+                        }
+
+                    },
+                    error: function (result) {
+                        alert("Error Occurred, Try Again");
+                    }
+                });
+            } else {
+                alert("Please Fill all the Fields");
+                return false;
+            }
+        }
+
+    </script>
+
+    <%-- Add Brand From Popup --%>
+    <script type="text/javascript">
+        function addBrand() {
+
+            var Name = document.getElementById('<%= txtAddBrand.ClientID %>').value;
+
+            if (Name !== '') {
+                $.ajax({
+                    type: 'POST',
+                    url: 'addBrand.aspx/addNewBrand',
+
+                    data: "{'Name':'" + Name + "'}",
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        var obj = data.d;
+                        if (obj === 'true') {
+                            jQuery("#exampleModalCenter").modal("hide");
+                            alert("Data Saved Successfully");
+                        }
+
+                    },
+                    error: function (result) {
+                        alert("Error Occurred, Try Again");
+                    }
+                });
+            } else {
+                alert("Please Fill all the Fields");
+                return false;
+            }
+        }
+
+    </script>
+
 </asp:Content>
+
+

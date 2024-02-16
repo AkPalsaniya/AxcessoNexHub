@@ -15,15 +15,6 @@ namespace AxcessoNexHub
     {
 
         /// <summary>
-        /// Label2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-
-        /// <summary>
         /// ddlMainCatID control.
         /// </summary>
         /// <remarks>
@@ -40,15 +31,6 @@ namespace AxcessoNexHub
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorMainCatID;
-
-        /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
         /// txtSubCategory control.
@@ -69,30 +51,30 @@ namespace AxcessoNexHub
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatortxtSubCategoryName;
 
         /// <summary>
-        /// btnAddSubCategory control.
+        /// txtId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddSubCategory;
+        protected global::System.Web.UI.WebControls.TextBox txtId;
 
         /// <summary>
-        /// rptrSubCat control.
+        /// ddlUpdateCategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptrSubCat;
+        protected global::System.Web.UI.WebControls.DropDownList ddlUpdateCategory;
 
         /// <summary>
-        /// gvSubCategory control.
+        /// txtUpdateSubCategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvSubCategory;
+        protected global::System.Web.UI.WebControls.TextBox txtUpdateSubCategory;
     }
 }
