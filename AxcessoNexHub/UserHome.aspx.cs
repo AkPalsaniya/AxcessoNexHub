@@ -17,6 +17,17 @@ namespace AxcessoNexHub
         protected void Page_Load(object sender, EventArgs e)
         {
             BindProductRepeater();
+            BindCategoryRepeter();
+        }
+
+        private void BindCategoryRepeter()
+        {
+            SqlConnection conn = new SqlConnection(CS);
+            SqlDataAdapter sda = new SqlDataAdapter("Select * from tblCategory", conn);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            rptrCategory.DataSource = dt;
+            rptrCategory.DataBind();
         }
 
         //Repeter Bind
@@ -45,22 +56,30 @@ namespace AxcessoNexHub
             //        }
             //    }
             //}
-            SqlConnection con = new SqlConnection(CS);
-            SqlCommand cmd = new SqlCommand("procBindAllProducts", con);
-            cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            rptrProducts.DataSource = dt;
-            rptrProducts.DataBind();
-            if (dt.Rows.Count <= 0)
+            try
             {
-                //pCount.InnerHtml = "0";
-            }
-            else
-            {
+                SqlConnection con = new SqlConnection(CS);
+                SqlCommand cmd = new SqlCommand("procBindAllProducts", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                rptrProducts.DataSource = dt;
+                rptrProducts.DataBind();
+                if (dt.Rows.Count <= 0)
+                {
+                    //pCount.InnerHtml = "0";
+                }
+                else
+                {
 
+                }
             }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('Error in loading Product')</script>");
+            }
+            
         }
     }
 }

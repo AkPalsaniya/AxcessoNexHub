@@ -30,7 +30,7 @@ namespace AxcessoNexHub
             }
             else
             {
-                Response.Redirect("~/Products.aspx");
+                Response.Redirect("~/Product.aspx");
             }
         }
 
@@ -138,15 +138,7 @@ namespace AxcessoNexHub
                             rblSize.DataBind();
                         }
                     }
-                }
-
-
-
-
-
-
-
-
+                } 
             }
         }
 
@@ -247,7 +239,6 @@ namespace AxcessoNexHub
 
         private void AddToCartProduction()
         {
-            //if (Session["Username"] != null)
             if (Session["Username"] != null)
             {
                 Int32 UserID = Convert.ToInt32(Session["USERID"].ToString());

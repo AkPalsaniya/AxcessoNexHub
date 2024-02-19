@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <form runat="server">
+    
 
 
         <%-- Slider Baner --%>
@@ -208,140 +208,18 @@
 
                             <asp:Repeater ID="rptrCategory" runat="server">
                                 <ItemTemplate>
-                                    <li class="sidebar-menu-category">
 
-                                        <button class="sidebar-accordion-menu" data-accordion-btn>
-
-                                            <div class="menu-title-flex">
-                                                <img src="./assets/images/icons/dress.svg" alt="clothes" width="20" height="20"
-                                                    class="menu-title-img">
-
-                                                <p class="menu-title"><%# Eval("CatName") %></p>
-                                            </div>
-
-                                            <div>
-                                                <ion-icon name="add-outline" class="add-icon"></ion-icon>
-                                                <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
-                                            </div>
-
-                                        </button>
-
-                                    </li>
+                                    <a href="categoryWiseProduct.aspx?parentCId=<%# Eval("CatID") %>" class="sidebar-accordion-menu" style="text-decoration: none;">
+                                        <div class="menu-title-flex">
+                                            <img src="./assets/images/icons/Category.png" alt="clothes" width="20" height="20"
+                                                class="menu-title-img">
+                                            <p class="menu-title"><%# Eval("CatName") %></p>
+                                        </div>
+                                        
+                                    </a>
                                 </ItemTemplate>
                             </asp:Repeater>
 
-                            <li class="sidebar-menu-category">
-
-                                <button class="sidebar-accordion-menu" data-accordion-btn>
-
-                                    <div class="menu-title-flex">
-                                        <img src="./assets/images/icons/shoes.svg" alt="footwear" class="menu-title-img" width="20"
-                                            height="20">
-
-                                        <p class="menu-title">Footwear</p>
-                                    </div>
-
-                                    <div>
-                                        <ion-icon name="add-outline" class="add-icon"></ion-icon>
-                                        <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
-                                    </div>
-
-                                </button>
-                            </li>
-
-                            <li class="sidebar-menu-category">
-
-                                <button class="sidebar-accordion-menu" data-accordion-btn>
-
-                                    <div class="menu-title-flex">
-                                        <img src="./assets/images/icons/jewelry.svg" alt="clothes" class="menu-title-img" width="20"
-                                            height="20">
-
-                                        <p class="menu-title">Jewelry</p>
-                                    </div>
-
-                                    <div>
-                                        <ion-icon name="add-outline" class="add-icon"></ion-icon>
-                                        <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
-                                    </div>
-
-                                </button>
-                            </li>
-
-                            <li class="sidebar-menu-category">
-
-                                <button class="sidebar-accordion-menu" data-accordion-btn>
-
-                                    <div class="menu-title-flex">
-                                        <img src="./assets/images/icons/perfume.svg" alt="perfume" class="menu-title-img" width="20"
-                                            height="20">
-
-                                        <p class="menu-title">Perfume</p>
-                                    </div>
-
-                                    <div>
-                                        <ion-icon name="add-outline" class="add-icon"></ion-icon>
-                                        <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
-                                    </div>
-
-                                </button>
-                            </li>
-
-                            <li class="sidebar-menu-category">
-
-                                <button class="sidebar-accordion-menu" data-accordion-btn>
-
-                                    <div class="menu-title-flex">
-                                        <img src="./assets/images/icons/cosmetics.svg" alt="cosmetics" class="menu-title-img" width="20"
-                                            height="20">
-
-                                        <p class="menu-title">Cosmetics</p>
-                                    </div>
-
-                                    <div>
-                                        <ion-icon name="add-outline" class="add-icon"></ion-icon>
-                                        <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
-                                    </div>
-
-                                </button>
-                            </li>
-
-                            <li class="sidebar-menu-category">
-
-                                <button class="sidebar-accordion-menu" data-accordion-btn>
-
-                                    <div class="menu-title-flex">
-                                        <img src="./assets/images/icons/glasses.svg" alt="glasses" class="menu-title-img" width="20"
-                                            height="20">
-
-                                        <p class="menu-title">Glasses</p>
-                                    </div>
-
-                                    <div>
-                                        <ion-icon name="add-outline" class="add-icon"></ion-icon>
-                                        <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
-                                    </div>
-
-                                </button>
-                            </li>
-
-                            <li class="sidebar-menu-category">
-
-                                <button class="sidebar-accordion-menu" data-accordion-btn>
-
-                                    <div class="menu-title-flex">
-                                        <img src="./assets/images/icons/bag.svg" alt="bags" class="menu-title-img" width="20" height="20">
-
-                                        <p class="menu-title">Bags</p>
-                                    </div>
-
-                                    <div>
-                                        <ion-icon name="add-outline" class="add-icon"></ion-icon>
-                                        <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
-                                    </div>
-
-                                </button>
-                            </li>
 
                         </ul>
 
@@ -664,8 +542,6 @@
 
                     </div>
 
-
-
                     <!--- PRODUCT GRID  -->
 
                     <div class="product-main">
@@ -673,28 +549,21 @@
                         <h2 class="title">New Products</h2>
 
                         <div class="product-grid">
-                            
+
 
                             <asp:Repeater ID="rptrProducts" runat="server">
                                 <ItemTemplate>
                                     <div class="showcase">
-
                                         <a href="ProductView.aspx?PID=<%# Eval("PID") %>" style="text-decoration: none;">
                                             <div class="showcase-banner">
-                                                <img width="300" class="product-img default" src="Images/ProductImages/<%# Eval("PID") %>/<%# Eval("ImageName") %><%# Eval("Extention") %>"
-                                                    alt="<%# Eval("ImageName") %>" />
-                                                <%--<img src="./assets/images/products/jacket-3.jpg" alt="Mens Winter Leathers Jackets" width="300" class="product-img default">--%>
-                                                <img src="./assets/images/products/jacket-4.jpg" alt="Mens Winter Leathers Jackets" width="300" class="product-img hover">
+                                                <img width="300" class="product-img default" src="Images/ProductImages/<%# Eval("PID") %>/<%# Eval("ImageName1") %>.jpg"
+                                                    alt="<%# Eval("ImageName1") %>" />
+                                                <img src="Images/ProductImages/<%# Eval("PID") %>/<%# Eval("ImageName2") %>.jpg"
+                                                    alt="<%# Eval("ImageName2") %>" class="product-img hover">
 
                                                 <span class="showcase-badge">(<%# Eval("DiscAmount","{0:0,00}") %>&#8377 off) </span>
-                                                <%--<p class="showcase-badge">15%</p>--%>
 
                                                 <div class="showcase-actions">
-
-                                                    <%-- <button class="btn-action">
-                                            <ion-icon name="heart-outline"></ion-icon>
-                                        </button--%>
-
                                                     <a href="ProductView.aspx?PID=<%# Eval("PID") %>" style="text-decoration: none;">
                                                         <button class="btn-action">
                                                             <ion-icon name="eye-outline"></ion-icon>
@@ -708,14 +577,11 @@
                                                     <button class="btn-action">
                                                         <ion-icon name="bag-add-outline"></ion-icon>
                                                     </button>
-
                                                 </div>
                                             </div>
 
                                             <div class="showcase-content">
-
                                                 <a href="#" class="showcase-category"><%# Eval ("BrandName") %></a>
-
                                                 <a href="#">
                                                     <h3 class="showcase-title"><%# Eval ("PName") %></h3>
                                                 </a>
@@ -732,12 +598,12 @@
                                                     <p class="price"><%# Eval("PSelPrice", "₹{0:N2}") %></p>
                                                     <del><%# Eval ("PPrice","{0:0,00}") %></del>
                                                 </div>
-
                                             </div>
                                         </a>
                                     </div>
                                 </ItemTemplate>
                             </asp:Repeater>
+
                         </div>
 
                     </div>
@@ -746,6 +612,6 @@
 
             </div>
         </div>
-    </form>
+    
 
 </asp:Content>

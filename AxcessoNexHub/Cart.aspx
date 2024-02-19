@@ -36,7 +36,7 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="form1" runat="server">
+    <%--<form id="form1" runat="server">--%>
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
@@ -146,6 +146,8 @@
                                                         </div>
                                                         <div class="col-sm-3">
                                                             <input type="submit" value="Apply Coupon" class="btn btn-primary">
+                                                            <asp:Button ID="btnBuyNow" class="btn btn-primary" runat="server" OnClick="btnBuyNow_Click" Text="Check Out" />
+
                                                         </div>
                                                     </div>
                                                 </form>
@@ -181,5 +183,5 @@
 
             </ContentTemplate>
         </asp:UpdatePanel>
-    </form>
+    <%--</form>--%>
 </asp:Content>

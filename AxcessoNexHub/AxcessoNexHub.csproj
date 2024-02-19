@@ -87,6 +87,7 @@
     <Content Include="assets\images\electronics-banner-1.jpg" />
     <Content Include="assets\images\electronics-banner-2.jpg" />
     <Content Include="assets\images\icons\bag.svg" />
+    <Content Include="assets\images\icons\Category.png" />
     <Content Include="assets\images\icons\coat.svg" />
     <Content Include="assets\images\icons\cosmetics.svg" />
     <Content Include="assets\images\icons\dress.svg" />
@@ -298,6 +299,7 @@
     <Content Include="Images\Shoes.jpeg" />
     <Content Include="Images\tshirt.jpeg" />
     <Content Include="Images\Watch.jpg" />
+    <Content Include="payment.aspx" />
     <Content Include="Plugins\bootstrap\js\bootstrap.bundle.js" />
     <Content Include="Plugins\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="Plugins\bootstrap\js\bootstrap.js" />
@@ -453,6 +455,13 @@
     <Compile Include="editSubCategory.aspx.designer.cs">
       <DependentUpon>editSubCategory.aspx</DependentUpon>
     </Compile>
+    <Compile Include="payment.aspx.cs">
+      <DependentUpon>payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="payment.aspx.designer.cs">
+      <DependentUpon>payment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Product.aspx.cs">
       <DependentUpon>Product.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -499,6 +508,13 @@
     </Compile>
     <Compile Include="UserMain.Master.designer.cs">
       <DependentUpon>UserMain.Master</DependentUpon>
+    </Compile>
+    <Compile Include="userMaster.Master.cs">
+      <DependentUpon>userMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="userMaster.Master.designer.cs">
+      <DependentUpon>userMaster.Master</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -561,6 +577,7 @@
     <Content Include="Plugins\bootstrap\js\bootstrap.bundle.min.js.map" />
     <Content Include="Plugins\bootstrap\js\bootstrap.js.map" />
     <Content Include="Plugins\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="userMaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

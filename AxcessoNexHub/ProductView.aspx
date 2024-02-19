@@ -34,7 +34,7 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form runat="server">
+    <%--<form runat="server">--%>
         <div id="page">
 
             <div class="breadcrumbs">
@@ -56,43 +56,50 @@
         <div style="padding-top: 50px">--%>
 
             <div class="colorlib-product">
+
                 <div class="container">
                     <div class="row row-pb-lg product-detail-wrap">
                         <div class="col-sm-8">
                             <div class="owl-carousel">
-                                <asp:Repeater ID="rptrImage" runat="server">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+
+                                </ol>
+                                <%--<asp:Repeater ID="rptrImage" runat="server">
                                     <ItemTemplate>
                                         <div class="item">
                                             <div class="product-entry border">
                                                 <a href="#" class="prod-img">
                                                     <img src="Images/ProductImages/<%# Eval("PID") %>/<%# Eval("Name") %><%# Eval("Extention") %>" alt="Error" class="img-fluid">
-                                                    <%--<img src="images/item-1.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">--%>
                                                 </a>
                                             </div>
                                         </div>
                                     </ItemTemplate>
-                                </asp:Repeater>
-                                <%--<div class="item">
-                            <div class="product-entry border">
-                                <a href="#" class="prod-img">
-                                    <img src="images/item-2.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="product-entry border">
-                                <a href="#" class="prod-img">
-                                    <img src="images/item-3.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="product-entry border">
-                                <a href="#" class="prod-img">
-                                    <img src="images/item-4.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-                                </a>
-                            </div>
-                        </div>--%>
+                                </asp:Repeater>--%>
+                                <div class="carousel-inner" role="listbox">
+
+                                    <asp:Repeater ID="rptrImage" runat="server">
+                                        <ItemTemplate>
+                                            <div class="item <%# GetActiveImgClass(Container.ItemIndex) %>">
+                                                <img src="Images/ProductImages/<%# Eval("PID") %>/<%# Eval("Name") %><%# Eval("Extention") %>" alt="<%# Eval("Name") %>" onerror="this.src='Images/ImageNotAvailable.jpg'">
+                                            </div>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+
+                                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                                
                             </div>
                         </div>
 
@@ -334,5 +341,5 @@
 
                 });
             </script>
-    </form>
+    <%--</form>--%>
 </asp:Content>
