@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserMain.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="Cart.aspx.cs" Inherits="AxcessoNexHub.Cart" %>
 
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head1" runat="server">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700" rel="stylesheet">
 
@@ -35,7 +35,7 @@
 
 
 
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
     <%--<form id="form1" runat="server">--%>
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -81,6 +81,8 @@
                                             <span>Remove</span>
                                         </div>
                                     </div>
+
+
                                     <asp:Repeater ID="RptrCartProducts" OnItemCommand="RptrCartProducts_ItemCommand" runat="server">
                                         <ItemTemplate>
                                             <div class="product-cart d-flex">
@@ -146,7 +148,8 @@
                                                         </div>
                                                         <div class="col-sm-3">
                                                             <input type="submit" value="Apply Coupon" class="btn btn-primary">
-                                                            <asp:Button ID="btnBuyNow" class="btn btn-primary" runat="server" OnClick="btnBuyNow_Click" Text="Check Out" />
+                                                            <%--<asp:Button ID="btnBuyNow" class="btn btn-primary" runat="server" OnClick="btnBuyNow_Click" Text="Check Out" />--%>
+                                                            <%--<asp:Button ID="btnBuy" class="btn btn-primary" runat="server" OnClick="btnBuy_Click" Text="Check Out" />--%>
 
                                                         </div>
                                                     </div>

@@ -208,5 +208,12 @@ namespace AxcessoNexHub
                 }
             }
         }
+
+      
+
+        protected void btnBuy_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserMain.Master" AutoEventWireup="true" CodeBehind="ProductView.aspx.cs" Inherits="AxcessoNexHub.ProductView" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head1" runat="server">
 
     <!-- Animate.css -->
     <link rel="stylesheet" href="css/animate.css">
@@ -33,7 +33,7 @@
 </asp:Content>
 
 
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
     <%--<form runat="server">--%>
         <div id="page">
 

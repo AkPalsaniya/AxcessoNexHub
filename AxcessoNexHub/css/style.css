@@ -7675,11 +7675,15 @@ h1, h2, h3, h4, h5,
 .colorlib-partner,
 .colorlib-intro,
 .colorlib-product {
-  padding: 7em 0;
+  padding: 3em 0;
   clear: both; }
+    .colorlib-product{
+        padding:1rem;
+    }
 
-.colorlib-intro {
-  padding-bottom: 0; }
+    .colorlib-intro {
+        padding-bottom: 0;
+    }
 
 .intro {
   font-size: 40px;
