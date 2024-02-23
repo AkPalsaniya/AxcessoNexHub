@@ -22,9 +22,9 @@ namespace AxcessoNexHub
 
         public void BindCartNumber22()
         {
-            //if (Session["USERID"] != null)
-            //{
-                string UserIDD = "2";
+            if (Session["USERID"] != null)
+            {
+                string UserIDD = Session["USERID"].ToString();
                 DataTable dt = new DataTable();
                 using (SqlConnection con = new SqlConnection(CS))
                 {
@@ -47,7 +47,7 @@ namespace AxcessoNexHub
                             proCount.InnerText = 0.ToString();  
                         }
                     }
-                //}
+                }
             }
         }
     }

@@ -18,17 +18,17 @@ namespace AxcessoNexHub
             divQtyError.Visible = false;
             if (!IsPostBack)
             {
-                //if (Session["Username"] != null)
-                //{
-                //    BindProductCart();
-                //    //BindCartNumber();
-                //}
-                //else
-                //{
-                //    BindProductCart();
-                //    //Response.Redirect("Signin.aspx");
-                //}
-                BindProductCart();
+                if (Session["Username"] != null)
+                {
+                    BindProductCart();
+                    //BindCartNumber();
+                }
+                else
+                {
+                 //   BindProductCart();
+                  Response.Redirect("Signin.aspx");
+                }
+                //BindProductCart();
             }
         }
 
@@ -67,8 +67,8 @@ namespace AxcessoNexHub
 
         private void BindProductCart()
         {
-            //string UserIDD = Session["USERID"].ToString();
-            string UserIDD = "2";
+            string UserIDD = Session["USERID"].ToString();
+           // string UserIDD = "2";
             DataTable dt = new DataTable();
             using (SqlConnection con = new SqlConnection(CS))
             {
@@ -107,8 +107,8 @@ namespace AxcessoNexHub
 
         protected void RptrCartProducts_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            //Int32 UserID = Convert.ToInt32(Session["USERID"].ToString());
-            Int32 UserID = 2;
+            Int32 UserID = Convert.ToInt32(Session["USERID"].ToString());
+            //Int32 UserID = 2;
             //This will add +1 to current quantity using PID
             if (e.CommandName == "DoPlus")
             {

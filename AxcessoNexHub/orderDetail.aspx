@@ -105,12 +105,12 @@
                                     </div>
                                     <div class="one-eight text-center">
                                         <div class="display-tc">
-                                            <span class="price">Rs.&nbsp <%# Eval("PaymentType") %></span>
+                                            <span class="price"><%# Eval("PaymentType") %></span>
                                         </div>
                                     </div>
                                     <div class="one-eight text-center">
                                         <div class="display-tc">
-                                            <span class="price">Rs.&nbsp <%# Eval("Status") %></span>
+                                            <span class="price"><%# Eval("Status") %></span>
                                         </div>
                                     </div>
                                 </div>

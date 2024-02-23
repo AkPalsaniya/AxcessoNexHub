@@ -224,6 +224,7 @@
     <Content Include="dist\js\pages\dashboard2.js" />
     <Content Include="dist\js\pages\dashboard3.js" />
     <Content Include="editSubCategory.aspx" />
+    <Content Include="flaticon\font\flaticon.css" />
     <Content Include="Images\ImageNotAvailable.jpg" />
     <Content Include="Images\jwelery.jpg" />
     <Content Include="Images\Noimg.png" />
@@ -382,6 +383,8 @@
     <Content Include="Product.aspx" />
     <Content Include="ProductView.aspx" />
     <Content Include="Report.aspx" />
+    <Content Include="SignIn.aspx" />
+    <Content Include="SignUp.aspx" />
     <Content Include="style-prefix.css" />
     <Content Include="userDetail.aspx" />
     <Content Include="UserHome.aspx" />
@@ -499,6 +502,20 @@
     <Compile Include="Report.aspx.designer.cs">
       <DependentUpon>Report.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SignIn.aspx.cs">
+      <DependentUpon>SignIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SignIn.aspx.designer.cs">
+      <DependentUpon>SignIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SignUp.aspx.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SignUp.aspx.designer.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
+    </Compile>
     <Compile Include="userDetail.aspx.cs">
       <DependentUpon>userDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -564,6 +581,10 @@
     <Content Include="dist\js\.eslintrc.json" />
     <Content Include="dist\js\adminlte.js.map" />
     <Content Include="dist\js\adminlte.min.js.map" />
+    <Content Include="flaticon\font\Flaticon.eot" />
+    <Content Include="flaticon\font\Flaticon.ttf" />
+    <Content Include="flaticon\font\Flaticon.woff" />
+    <Content Include="flaticon\font\_flaticon.scss" />
     <None Include="packages.config" />
     <Content Include="UserMain.Master" />
     <Content Include="Plugins\fontawesome-free\webfonts\fa-brands-400.eot" />
