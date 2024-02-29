@@ -148,7 +148,7 @@
                                                     </div>
                                                     <div class="col-sm-3">
                                                         <input type="submit" value="Apply Coupon" class="btn btn-primary">
-                                                        <%--<asp:Button ID="btnBuyNow" class="btn btn-primary" runat="server" OnClick="btnBuyNow_Click" Text="Check Out" />--%>
+                                                        <asp:Button ID="btnBuyNow" class="btn btn-primary" runat="server" OnClick="btnBuyNow_Click" Text="Check Out" />
                                                         <%--<asp:Button ID="btnBuy" class="btn btn-primary" runat="server" OnClick="btnBuy_Click" Text="Check Out" />--%>
                                                     </div>
                                                 </div>

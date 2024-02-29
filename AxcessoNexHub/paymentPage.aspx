@@ -6,22 +6,22 @@
 <head runat="server">
     <title></title>
     <!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
-	<!-- Ion Icon Fonts-->
-	<link rel="stylesheet" href="css/ionicons.min.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="css/icomoon.css">
+    <!-- Ion Icon Fonts-->
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
-	<!-- Magnific Popup -->
-	<link rel="stylesheet" href="css/magnific-popup.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
 
-	<!-- Flexslider  -->
-	<link rel="stylesheet" href="css/flexslider.css">
+    <!-- Flexslider  -->
+    <link rel="stylesheet" href="css/flexslider.css">
 
     <!-- Theme style  -->
-	<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <form id="form1" runat="server">
@@ -37,7 +37,7 @@
                             <form method="post" class="colorlib-form">
                                 <h2>Delivery Address</h2>
                                 <div class="row">
-                                    
+
 
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -54,25 +54,25 @@
                                             <asp:TextBox ID="txtAddress" TextMode="MultiLine" CssClass="form-control" runat="server" placeholder="Addres"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" CssClass="text-danger" runat="server" ErrorMessage="This field is Required !" ControlToValidate="txtAddress"></asp:RequiredFieldValidator>
                                         </div>
-                                        </div>
                                     </div>
+                                </div>
 
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="lname">Zip/Postal Code</label>
-                                            <asp:TextBox ID="txtPinCode" CssClass="form-control" runat="server" placeholder="Pin-Code"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" CssClass="text-danger" runat="server" ErrorMessage="This field is Required !" ControlToValidate="txtPinCode"></asp:RequiredFieldValidator>
-                                        </div>
-                                    </div> 
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="Phone">Phone Number</label>
-                                            <asp:TextBox ID="txtMobileNumber" CssClass="form-control" runat="server" placeholder="Mobile Number"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" CssClass="text-danger" runat="server" ErrorMessage="This field is Required !" ControlToValidate="txtMobileNumber"></asp:RequiredFieldValidator>
-                                        </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="lname">Zip/Postal Code</label>
+                                        <asp:TextBox ID="txtPinCode" CssClass="form-control" runat="server" placeholder="Pin-Code"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" CssClass="text-danger" runat="server" ErrorMessage="This field is Required !" ControlToValidate="txtPinCode"></asp:RequiredFieldValidator>
                                     </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="Phone">Phone Number</label>
+                                        <asp:TextBox ID="txtMobileNumber" CssClass="form-control" runat="server" placeholder="Mobile Number"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" CssClass="text-danger" runat="server" ErrorMessage="This field is Required !" ControlToValidate="txtMobileNumber"></asp:RequiredFieldValidator>
+                                    </div>
+                                </div>
 
-                                    <%--<div class="col-md-12">
+                                <%--<div class="col-md-12">
                                         <div class="form-group">
                                             <div class="radio">
                                                 <label>
@@ -84,9 +84,9 @@
                                             </div>
                                         </div>
                                     </div>--%>
-                                </form>
-                                </div>
-                            
+                            </form>
+                        </div>
+
                         <%--</div>--%>
 
                         <div class="col-lg-4">
@@ -151,7 +151,6 @@
                             <div class="row">
                                 <div class="col-md-12 text-center">
                                     <asp:Button ID="BtnPlaceNPay" CssClass="btn btn-primary" Font-Size="Large" ValidationGroup="PaymentPage" runat="server" OnClick="BtnPlaceNPay_Click" Text="Place an order" />
-                                    <asp:Button ID="btnDemo" CssClass="btn btn-primary" Font-Size="Large" runat="server" OnClick="btnDemo_Click" Text="Place an order" />
                                     <%--<p><a href="#" class="btn btn-primary">Place an order</a></p>--%>
                                 </div>
                             </div>
@@ -160,9 +159,30 @@
                 </div>
             </div>
 
-            
+            <%--Grid View For product Detail--%>
+            <div>
+                <asp:GridView ID="gvProducts" runat="server" CssClass="col-md-12" AutoGenerateColumns="false" Visible="false" CellPadding="6"
+                    ForeColor="#333333" GridLines="None">
+                    <AlternatingRowStyle BackColor="White" />
+                    <EditRowStyle BackColor="#7C6F57" />
+                    <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#E3EAEB" />
+                    <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                    <SortedAscendingHeaderStyle BackColor="#246B61" />
+                    <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                    <SortedDescendingHeaderStyle BackColor="#15524A" />
+                    <Columns>
+                        <asp:BoundField DataField="PID" HeaderText="Product ID" />
+                        <asp:BoundField DataField="PName" HeaderText="Product Name" />
+                        <asp:BoundField DataField="Qty" HeaderText="Quantity" />
+                    </Columns>
+                </asp:GridView>
+            </div>
         </div>
-        <div> 
+        <div>
         </div>
     </form>
 </body>

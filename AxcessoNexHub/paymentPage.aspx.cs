@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
+using System.Data.SqlClient;
 using System.Web.UI.WebControls;
-using System.IO;
-using System.Net;
-using System.Web.Query.Dynamic;
-using InstamojoAPI;
 
 namespace AxcessoNexHub
 {
@@ -35,13 +27,11 @@ namespace AxcessoNexHub
                     BindOrderProducts();
 
                 }
-                Session["USERNAME"] = "Abid";
+               
             }
             else
             {
-                Session["USERID"] = "1";
-                Session["USERNAME"] = "Abid";
-                //Response.Redirect("SignIn.aspx");
+                Response.Redirect("SignIn.aspx");
             }
         }
 
@@ -101,13 +91,13 @@ namespace AxcessoNexHub
                 else
                 {
                     //TODO Show Empty Cart
-                    Response.Redirect("~/Products.aspx");
+                    Response.Redirect("~/Product.aspx");
                 }
             }
             else
             {
                 //TODO Show Empty Cart
-                Response.Redirect("~/Products.aspx");
+                Response.Redirect("~/Product.aspx");
             }
         }
 
@@ -143,7 +133,7 @@ namespace AxcessoNexHub
                     }
                     else
                     {
-                        Response.Redirect("Products.aspx");
+                        Response.Redirect("Product.aspx");
                     }
                 }
             }
@@ -265,8 +255,8 @@ namespace AxcessoNexHub
                                     {
                                         DataTable dtProducts = new DataTable();
                                         sda.Fill(dtProducts);
-                                        //gvProducts.DataSource = dtProducts;
-                                        //gvProducts.DataBind();
+                                        gvProducts.DataSource = dtProducts;
+                                        gvProducts.DataBind();
                                     }
                                 }
                             }
@@ -291,7 +281,7 @@ namespace AxcessoNexHub
                 Session["PayMethod"] = "Place n Pay";
 
                 string USERID = Session["USERID"].ToString();
-                string PaymentType = "PnP";
+                string PaymentType = "Cash";
                 string PaymentStatus = "NotPaid";
                 string EMAILID = Session["USEREMAIL"].ToString();
                 string OrderStatus = "Pending";
@@ -315,12 +305,10 @@ namespace AxcessoNexHub
                     cmd.Parameters.AddWithValue("@OrderNumber", OrderNumber.ToString());
                     if (con.State == ConnectionState.Closed) { con.Open(); }
                     Int64 OrderID = Convert.ToInt64(cmd.ExecuteScalar());
-                    //InsertOrderProducts();
+                    InsertOrderProducts();
 
                     //InstaMOjoPayment();
-                }
-
-               
+                } 
             }
             else
             {
@@ -454,32 +442,34 @@ namespace AxcessoNexHub
         //    }
         //}
 
-        //private void InsertOrderProducts()
-        //{
-        //    string USERID = Session["USERID"].ToString();
-        //    using (SqlConnection con = new SqlConnection(CS))
-        //    {
-        //        foreach (GridViewRow gvr in gvProducts.Rows)
-        //        {
-        //            SqlCommand myCmd = new SqlCommand("SP_InsertOrderProducts", con)
-        //            {
-        //                CommandType = CommandType.StoredProcedure
-        //            };
-        //            myCmd.Parameters.AddWithValue("@OrderID", OrderNumber.ToString());
-        //            myCmd.Parameters.AddWithValue("@UserID", USERID);
-        //            myCmd.Parameters.AddWithValue("@PID", gvr.Cells[0].Text);
-        //            myCmd.Parameters.AddWithValue("@Products", gvr.Cells[1].Text);
-        //            myCmd.Parameters.AddWithValue("@Quantity", gvr.Cells[2].Text);
-        //            myCmd.Parameters.AddWithValue("@OrderDate", DateTime.Now.ToString("yyyy-MM-dd"));
-        //            myCmd.Parameters.AddWithValue("@Status", "Pending");
-        //            if (con.State == ConnectionState.Closed) { con.Open(); }
-        //            Int64 OrderProID = Convert.ToInt64(myCmd.ExecuteScalar());
-        //            con.Close();
-        //            EmptyCart();
-        //            //Response.Redirect("Success.aspx");
-        //        }
-        //    }
-        //}
+        private void InsertOrderProducts()
+        {
+            string USERID = Session["USERID"].ToString();
+            using (SqlConnection con = new SqlConnection(CS))
+            {
+                foreach (GridViewRow gvr in gvProducts.Rows)
+                {
+                    SqlCommand myCmd = new SqlCommand("SP_InsertOrderProducts", con)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+                    myCmd.Parameters.AddWithValue("@OrderID", OrderNumber.ToString());
+                    myCmd.Parameters.AddWithValue("@UserID", USERID);
+                    myCmd.Parameters.AddWithValue("@PID", gvr.Cells[0].Text);
+                    myCmd.Parameters.AddWithValue("@Products", gvr.Cells[1].Text);
+                    myCmd.Parameters.AddWithValue("@Quantity", gvr.Cells[2].Text);
+                    myCmd.Parameters.AddWithValue("@OrderDate", DateTime.Now.ToString("yyyy-MM-dd"));
+                    myCmd.Parameters.AddWithValue("@Status", "Pending");
+                    if (con.State == ConnectionState.Closed) { con.Open(); }
+                    Int64 OrderProID = Convert.ToInt64(myCmd.ExecuteScalar());
+                    con.Close();
+                    EmptyCart();
+                    //Response.Redirect("Success.aspx");
+                    Response.Write("<script>alert('Order placed sucesfully')</script>");
+                }
+                    Response.Redirect("product.aspx");
+            }
+        }
 
         private void EmptyCart()
         {
@@ -496,10 +486,6 @@ namespace AxcessoNexHub
                 con.Close();
             }
         }
-
-        protected void btnDemo_Click(object sender, EventArgs e)
-        {
-
-        }
+         
     }
 }

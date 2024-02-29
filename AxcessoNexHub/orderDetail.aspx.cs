@@ -16,13 +16,24 @@ namespace AxcessoNexHub
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            bindMyOrderRptr();
+            if (Session["USERNAME"] != null)
+            {
+                if (!IsPostBack)
+                {
+                    bindMyOrderRptr();
+                }
+
+            }
+            else
+            {
+                Response.Redirect("SignIn.aspx");
+            }
         }
 
         private void bindMyOrderRptr()
         {
-            //string UserIDD = Session["USERID"].ToString();
-            string UserIDD = "2";
+            string UserIDD = Session["USERID"].ToString();
+          
             DataTable dt = new DataTable();
             using (SqlConnection con = new SqlConnection(CS))
             {

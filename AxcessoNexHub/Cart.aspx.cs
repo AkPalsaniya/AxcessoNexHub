@@ -209,11 +209,11 @@ namespace AxcessoNexHub
             }
         }
 
-      
 
-        protected void btnBuy_Click(object sender, EventArgs e)
+
+        protected void btnBuyNow_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("paymentPage.aspx");
         }
     }
 }

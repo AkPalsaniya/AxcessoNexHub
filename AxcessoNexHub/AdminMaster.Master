@@ -55,11 +55,8 @@
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a href="AdminHome.aspx" class="nav-link">Home</a>
-                            </li>
-
-                        </ul>
-
-
+                            </li> 
+                        </ul> 
                     </div>
 
                     <!-- Right navbar links -->
@@ -75,19 +72,12 @@
                                 <%--<span class="badge badge-danger navbar-badge">3</span>--%>
                             </a>
                             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                                <li><a href="AddBrand.aspx" class="dropdown-item">Add Brand</a> </li>
-                                <li><a href="AddCategory.aspx" class="dropdown-item">Add Category</a> </li>
-                                <li><a href="addSubCategory.aspx" class="dropdown-item">Add SubCategory</a> </li>
+                                <li><a href="AddBrand.aspx" class="dropdown-item">Brand</a> </li>
+                                <li><a href="AddCategory.aspx" class="dropdown-item">Category</a> </li>
+                                <li><a href="addSubCategory.aspx" class="dropdown-item">SubCategory</a> </li>
                                 <%--<li><a href="AddGender.aspx" class="dropdown-item">Add Gender</a> </li>--%>
-                                <li><a href="AddSize.aspx" class="dropdown-item">Add Size</a> </li>
-                                <li role="separator" class="dropdown-divider"></li>
-                                <li><a href="EditBrand.aspx" class="dropdown-item">Edit Brand</a> </li>
-                                <li><a href="EditCategory.aspx" class="dropdown-item">Edit Category</a> </li>
-                                <li><a href="EditSubCategory.aspx" class="dropdown-item">Edit SubCategory</a> </li>
-                                <li><a href="EditSize.aspx" class="dropdown-item">Edit Size</a> </li>
-                                <li role="separator" class="dropdown-divider"></li>
-                                <li><a href="Report.aspx" class="dropdown-item">Report</a> </li>
-                                <!-- End Level two -->
+                                <li><a href="AddSize.aspx" class="dropdown-item">Order</a> </li>
+                                
                             </ul>
                         </li>
                         <li class="nav-item">
