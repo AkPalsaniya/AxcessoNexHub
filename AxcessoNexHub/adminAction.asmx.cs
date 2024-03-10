@@ -145,6 +145,42 @@ namespace AxcessoNexHub
             // Serialize and return the data as JSON
             Context.Response.Write(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(ret));
         }
+
+        //Get Size
+        [WebMethod]
+        public void getOrderDetail()
+        {
+            string strCon = ConfigurationManager.ConnectionStrings["MyShoppingDB"].ConnectionString;
+            //string strCon = @"Data Source=.\SQLEXPRESS;Initial Catalog=MyEShoppingDB2;Integrated Security=True;";
+            var ret = new List<orderList>();
+
+            using (var con = new SqlConnection(strCon))
+            {
+                //var cmd = new SqlCommand("select A.SubCatID,A.SubCatName,B.CatName from tblSubCategory as A JOIN tblCategory as B on A.MainCatID = B.CatID", con);
+                var cmd = new SqlCommand("SELECT o.orderId, o.products, o.status, u.Name FROM tblOrderproducts o INNER JOIN tblUsers u ON o.UserID = u.UId", con);
+                con.Open();
+                var dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    var rObj = new orderList
+                    {
+                        Id = dr["orderId"].ToString(),
+                        Name = dr["Name"].ToString(),
+                        Product = dr["products"].ToString(),
+                        Status = dr["status"].ToString(),
+                        
+                    };
+                    
+                    ret.Add(rObj);
+                }
+                //Context.Response.Write(dr["Name"]);
+            }
+
+            // Serialize and return the data as JSON
+            Context.Response.Write(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(ret));
+        }
+
     }
 }
 
@@ -174,5 +210,13 @@ public class sizeList
     public string CategoryName { get; set; }
     public string SubCategoryName { get; set; }
     public string GenderName { get; set; }
+}
+
+public class orderList
+{
+    public string Id { get; set; }
+    public string Name { get; set; }
+    public string Product { get; set; }
+    public string Status { get; set; }
 }
 

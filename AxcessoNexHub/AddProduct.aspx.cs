@@ -235,6 +235,7 @@ namespace AxcessoNexHub
                     }
 
                 }
+                clearFields();
             }
             catch (Exception ex)
             {
@@ -242,6 +243,21 @@ namespace AxcessoNexHub
             }
             
 
+        }
+
+        private void clearFields()
+        {
+            txtProductName.Text = string.Empty;
+            txtPrice.Text = string.Empty;
+            txtsellPrice.Text = string.Empty;
+            ddlBrand.SelectedIndex = -1;
+            ddlCategory.SelectedIndex = -1;
+            ddlSubCategory.SelectedIndex = -1;
+            ddlGender.SelectedIndex = -1;
+            txtQuantity.Text = string.Empty;
+            txtDescription.Text = string.Empty;
+            txtPDetail.Text = string.Empty;
+            txtMatCare.Text = string.Empty;
         }
 
         protected void ddlCategory_SelectedIndexChanged(object sender, EventArgs e)

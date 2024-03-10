@@ -224,7 +224,9 @@
     <Content Include="dist\js\pages\dashboard2.js" />
     <Content Include="dist\js\pages\dashboard3.js" />
     <Content Include="editSubCategory.aspx" />
+    <Content Include="ErrorPage.aspx" />
     <Content Include="flaticon\font\flaticon.css" />
+    <Content Include="Global.asax" />
     <Content Include="Images\ImageNotAvailable.jpg" />
     <Content Include="Images\jwelery.jpg" />
     <Content Include="Images\Noimg.png" />
@@ -308,6 +310,7 @@
     <Content Include="js\jquery.waypoints.min.js" />
     <Content Include="js\owl.carousel.min.js" />
     <Content Include="orderDetail.aspx" />
+    <Content Include="orderManage.aspx" />
     <Content Include="paymentPage.aspx" />
     <Content Include="Plugins\bootstrap\js\bootstrap.bundle.js" />
     <Content Include="Plugins\bootstrap\js\bootstrap.bundle.min.js" />
@@ -466,12 +469,29 @@
     <Compile Include="editSubCategory.aspx.designer.cs">
       <DependentUpon>editSubCategory.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ErrorPage.aspx.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.designer.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="orderDetail.aspx.cs">
       <DependentUpon>orderDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="orderDetail.aspx.designer.cs">
       <DependentUpon>orderDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="orderManage.aspx.cs">
+      <DependentUpon>orderManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="orderManage.aspx.designer.cs">
+      <DependentUpon>orderManage.aspx</DependentUpon>
     </Compile>
     <Compile Include="paymentPage.aspx.cs">
       <DependentUpon>paymentPage.aspx</DependentUpon>
