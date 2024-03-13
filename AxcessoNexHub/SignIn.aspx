@@ -17,9 +17,7 @@
     <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
-</head>
-
-
+ 
 </head>
 <body>
     <form id="form1" runat="server">
@@ -28,15 +26,11 @@
             <div class="navbar navbar-default navbar-fixed-top " role="navigation">
                 <div class="container ">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle " data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-
-                        </button>
-                        <a class="navbar-brand" href="Default.aspx"><span>
-                            <img src="icons/safeIcons.png" alt="MyEShoppoing" height="30" /></span>MyEShopping </a>
+                        
+                        <a class="navbar-brand" href="userHome.aspx"><span>
+                            <img src="assets/images/logo/logo.svg" alt="AxcessoNexHub" height="30" /></span></a>
+                        
+                        <a class="navbar-brand" href="userHome.aspx" style="text-decoration:none;color:black"><span>Home</span></a>
 
                     </div>
                     <div class="navbar-collapse collapse">

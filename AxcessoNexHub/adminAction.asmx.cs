@@ -157,7 +157,7 @@ namespace AxcessoNexHub
             using (var con = new SqlConnection(strCon))
             {
                 //var cmd = new SqlCommand("select A.SubCatID,A.SubCatName,B.CatName from tblSubCategory as A JOIN tblCategory as B on A.MainCatID = B.CatID", con);
-                var cmd = new SqlCommand("SELECT o.orderId, o.products, o.status, u.Name FROM tblOrderproducts o INNER JOIN tblUsers u ON o.UserID = u.UId", con);
+                var cmd = new SqlCommand("SELECT o.orderId, o.products, o.status, u.Name FROM tblOrderproducts o INNER JOIN tblUsers u ON o.UserID = u.UId ORDER BY o.orderId DESC;", con);
                 con.Open();
                 var dr = cmd.ExecuteReader();
 

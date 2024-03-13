@@ -4,11 +4,11 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <div class="container">
 
-
-    <div class="card card-primary mt-4">
-        <div class="card-header">
-            <h3 class="card-title">Add Product</h3>
+    <div class="card w-75 mx-auto mt-3" style="background-color: #d6d8db;">
+        <div class="card-header" style="background-color: #aab0b6;">
+            <h3>Add Product </h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
@@ -179,6 +179,7 @@
             </div>
         </form>
     </div>
+         </div>
  
 
     <%-- Report --%>

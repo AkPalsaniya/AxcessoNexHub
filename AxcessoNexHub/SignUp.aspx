@@ -113,12 +113,16 @@
             </div>
         </div>--%>
         <!---signup page end--->
+        <div class="navbar-header">
 
+            <a class="navbar-brand" href="userHome.aspx"><span>
+                <img src="assets/images/logo/logo.svg" alt="AxcessoNexHub" height="30" /></span></a>
+
+            <a class="navbar-brand" href="userHome.aspx" style="text-decoration: none; color: black"><span>Home</span></a>
+
+        </div>
         <div class="hold-transition register-page">
             <div class="register-box">
-                <div class="register-logo">
-                    <a href="../../index2.html"><b>Admin</b>LTE</a>
-                </div>
 
                 <div class="card">
                     <div class="card-body register-card-body">

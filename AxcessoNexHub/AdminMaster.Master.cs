@@ -13,5 +13,11 @@ namespace AxcessoNexHub
         {
         
         }
+
+        protected void lknBtnLogout_Click(object sender, EventArgs e)
+        {
+            Session["Username"] = null;
+            Response.Redirect("SignIn.aspx");
+        }
     }
 }

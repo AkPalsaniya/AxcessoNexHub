@@ -32,17 +32,17 @@
 
                             { 'data': 'Email' },
 
-                            { 'data': 'Usertype' },
+                            { 'data': 'Usertype' }
 
-                            {
-                                'data': null,
-                                'render': function (data, type, row) {
-                                    return '<button type="button" onclick="editRow(' + row.Id + ')" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>' +
-                                        '&nbsp;' +
-                                        '<button type="button" onclick="deletRow(' + row.Id + ')" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></button>';
+                            //{
+                            //    'data': null,
+                            //    'render': function (data, type, row) {
+                            //        return '<button type="button" onclick="editRow(' + row.Id + ')" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>' +
+                            //            '&nbsp;' +
+                            //            '<button type="button" onclick="deletRow(' + row.Id + ')" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></button>';
 
-                                }
-                            }
+                            //    }
+                            //}
                         ],
                         lengthMenu: [[10, 50, 25, -1], [10, 50, 25, "All"]]
                     });
@@ -83,7 +83,7 @@
                     <th>Name</th> 
                     <th>Email</th>
                     <th>User Type</th>
-                    <th>Action</th>
+                    <%--<th>Action</th>--%>
                 </tr>
             </thead>
             <tfoot>

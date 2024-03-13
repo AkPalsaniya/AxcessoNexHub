@@ -31,9 +31,9 @@
                             {
                                 'data': null,
                                 'render': function (data, type, row) {
-                                    return '<button type="button" onclick="editRow(' + row.SubCatID + ')" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>' +
-                                        '&nbsp;' +
-                                        '<button type="button" onclick="deletRow(' + row.BrandID + ')" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></button>';
+                                    return '<button type="button" onclick="editRow(' + row.SubCatID + ')" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></button>';
+                                        //'&nbsp;' +
+                                        //'<button type="button" onclick="deletRow(' + row.BrandID + ')" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></button>';
 
                                 }
                             }

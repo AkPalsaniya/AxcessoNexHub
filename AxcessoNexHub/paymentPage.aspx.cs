@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Stripe.Checkout;
+using Stripe;
+using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -7,7 +10,8 @@ using System.Web.UI.WebControls;
 namespace AxcessoNexHub
 {
     public partial class paymentPage : System.Web.UI.Page
-    {//Payment Id
+    {
+        public static long totalAmount;
         public string orderIdPayment;
         public string orderId;
 
@@ -26,8 +30,11 @@ namespace AxcessoNexHub
                     //BindCartNumber();
                     BindOrderProducts();
 
+                    //Stripe API
+                    StripeConfiguration.ApiKey = "sk_test_51OXzjsSCVBWSmcnoQe55M65tiUEFbQPYQvBvvHWTn4t9yuQwkWAVwuIdVsYmyqSbdrM4IXsNwtS56gWg69Knjo4e00WCvUnQau";
+
                 }
-               
+
             }
             else
             {
@@ -78,7 +85,10 @@ namespace AxcessoNexHub
                         CartTotal += Convert.ToInt64(dtBrands.Rows[i]["PPrice"]);
                         Total += Convert.ToInt64(dtBrands.Rows[i]["PSelPrice"]);
                     }
-                    //divPriceDetails.Visible = true;
+                    
+
+                    //Total Amount in variable For Stripe Payment
+                    totalAmount = Total;
 
                     spanCartTotal.InnerText = CartTotal.ToString();
                     spanTotal.InnerText = "Rs. " + Total.ToString();
@@ -167,36 +177,6 @@ namespace AxcessoNexHub
         }
 
 
-        //public void BindCartNumber()
-        //{
-        //    if (Session["USERID"] != null)
-        //    {
-        //        string UserIDD = Session["USERID"].ToString();
-        //        DataTable dt = new DataTable();
-        //        using (SqlConnection con = new SqlConnection(CS))
-        //        {
-        //            SqlCommand cmd = new SqlCommand("SP_BindCartNumberz", con)
-        //            {
-        //                CommandType = CommandType.StoredProcedure
-        //            };
-        //            cmd.Parameters.AddWithValue("@UserID", UserIDD);
-        //            using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
-        //            {
-        //                sda.Fill(dt);
-        //                if (dt.Rows.Count > 0)
-        //                {
-        //                    string CartQuantity = dt.Compute("Sum(Qty)", "").ToString();
-        //                    CartBadge.InnerText = CartQuantity;
-        //                }
-        //                else
-        //                {
-        //                    //_ = CartBadge.InnerText == 0.ToString();
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
-
         private void genAutoNum()
         {
             Random r = new Random();
@@ -281,10 +261,10 @@ namespace AxcessoNexHub
                 Session["PayMethod"] = "Place n Pay";
 
                 string USERID = Session["USERID"].ToString();
-                string PaymentType = "Cash";
+                string PaymentType = "Card";
                 string PaymentStatus = "NotPaid";
                 string EMAILID = Session["USEREMAIL"].ToString();
-                string OrderStatus = "Pending";
+                string OrderStatus = "Paid";
                 string FullName = Session["getFullName"].ToString();
                 using (SqlConnection con = new SqlConnection(CS))
                 {
@@ -307,7 +287,7 @@ namespace AxcessoNexHub
                     Int64 OrderID = Convert.ToInt64(cmd.ExecuteScalar());
                     InsertOrderProducts();
 
-                    //InstaMOjoPayment();
+                    //StripePayment();
                 } 
             }
             else
@@ -316,131 +296,61 @@ namespace AxcessoNexHub
             }
         }
 
-        //private void InstaMOjoPayment()
-        //{
-        //    string uid = System.DateTime.Now.Ticks.ToString();
-        //    Instamojo objClass = InstamojoImplementation.getApi( “[client_id]”, “[client_secret]”, “[endpoint]”, “[auth_endpoint]”);
+        //Stripe Payment Code
+        private void StripePayment()
+        {
+            try
+            {
+                // Hidden field value to Decimal to use as Dynamic Amount
+                decimal totalAmount = decimal.Parse(hdTotalPayed.Value);
+                int unitAmountInCents = (int)(totalAmount * 100);
+                int unitAmountInRs = (int)(unitAmountInCents / 81);
+
+                // Create a Checkout Session
+                var options = new SessionCreateOptions
+                {
+                    PaymentMethodTypes = new List<string> { "card" },
+                    LineItems = new List<SessionLineItemOptions>
+            {
+                new SessionLineItemOptions
+                {
+                    PriceData = new SessionLineItemPriceDataOptions
+                    {
+                        Currency = "usd", // Replace with your currency code if different
+                        ProductData = new SessionLineItemPriceDataProductDataOptions
+                        {
+                            Name = "Your Product Name",
+                        },
+                        UnitAmount = unitAmountInRs, // Replace with the actual amount in cents
+                        //UnitAmount = 1000, // Replace with the actual amount in cents
+                    },
+                    Quantity = 1,
+                },
+            },
+                    Mode = "payment",
+                    SuccessUrl = "https://localhost:44383/product.aspx",
+                    CancelUrl = "https://localhost:44350/paymentPage.aspx",
+                };
+
+                var service = new SessionService();
+                Session session = service.Create(options);
+
+                // Redirect to the Checkout page
+                Response.Redirect(session.Url, true);
+            }
+            catch (StripeException ex)
+            {
+                // Handle Stripe exceptions
+                Response.Write("Payment Error: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                // Handle other exceptions
+                Response.Write("Payment Error: " + ex.Message);
+            }
+        }
 
 
-        //    PaymentOrder objPaymentRequest = new PaymentOrder();
-        //    //Required POST parameters
-        //    objPaymentRequest.name = "ABCD";
-        //    objPaymentRequest.email = "foo@example.com";
-        //    objPaymentRequest.phone = "0123456789";
-        //    objPaymentRequest.amount = 9;
-        //    objPaymentRequest.transaction_id = uid; // Unique Id to be provided
-
-        //    objPaymentRequest.redirect_url = “userHome.aspx”;
-
-        //    //webhook is optional.
-        //    objPaymentRequest.webhook_url = "https://your.server.com/webhook";
-
-        //    if (objPaymentRequest.validate())
-        //    {
-        //        if (objPaymentRequest.emailInvalid)
-        //        {
-        //            //MessageBox.Show("Email is not valid");
-        //            Response.Write("Email is not valid");
-        //        }
-        //        if (objPaymentRequest.nameInvalid)
-        //        {
-        //            //MessageBox.Show("Name is not valid");
-        //            Response.Write("Name is not valid");
-        //        }
-        //        if (objPaymentRequest.phoneInvalid)
-        //        {
-        //            //MessageBox.Show("Phone is not valid");
-        //            Response.Write("Phone is not valid");
-        //        }
-        //        if (objPaymentRequest.amountInvalid)
-        //        {
-        //            //MessageBox.Show("Amount is not valid");
-        //            Response.Write("Amount is not valid");
-        //        }
-        //        if (objPaymentRequest.currencyInvalid)
-        //        {
-        //            //MessageBox.Show("Currency is not valid");
-        //            Response.Write("Currency is not valid");
-
-        //        }
-        //        if (objPaymentRequest.transactionIdInvalid)
-        //        {
-        //            //MessageBox.Show("Transaction Id is not valid");
-        //            Response.Write("Transaction Id is not valid");
-        //        }
-        //        if (objPaymentRequest.redirectUrlInvalid)
-        //        {
-        //            //MessageBox.Show("Redirect Url Id is not valid");
-        //            Response.Write("Redirect Url Id is not valid");
-        //        }
-        //        if (objPaymentRequest.webhookUrlInvalid)
-        //        {
-        //            //MessageBox.Show("Webhook URL is not valid");
-        //            Response.Write("Webhook URL is not valid");
-        //        }
-
-        //    }
-        //    else
-        //    {
-        //        try
-        //        {
-        //            CreatePaymentOrderResponse objPaymentResponse = objClass.createNewPaymentRequest(objPaymentRequest);
-        //            //MessageBox.Show("Payment URL = " + objPaymentResponse.payment_options.payment_url);
-        //            Response.Write("Payment URL = " + objPaymentResponse.payment_options.payment_url);
-
-        //        }
-        //        catch (ArgumentNullException ex)
-        //        {
-        //            //MessageBox.Show(ex.Message);
-        //            Response.Write(ex.Message);
-        //        }
-        //        catch (WebException ex)
-        //        {
-        //            //MessageBox.Show(ex.Message);
-        //            Response.Write(ex.Message);
-        //        }
-        //        catch (IOException ex)
-        //        {
-        //            //MessageBox.Show(ex.Message);
-        //            Response.Write(ex.Message);
-        //        }
-        //        catch (InvalidPaymentOrderException ex)
-        //        {
-        //            if (!ex.IsWebhookValid())
-        //            {
-        //                //MessageBox.Show("Webhook is invalid");
-        //                Response.Write("Webhook is invalid");
-        //            }
-
-        //            if (!ex.IsCurrencyValid())
-        //            {
-        //                //MessageBox.Show("Currency is Invalid");
-        //                Response.Write("Currency is Invalid");
-        //            }
-
-        //            if (!ex.IsTransactionIDValid())
-        //            {
-        //                //MessageBox.Show("Transaction ID is Inavlid");
-        //                Response.Write("Transaction ID is Inavlid");
-        //            }
-        //        }
-        //        catch (ConnectionException ex)
-        //        {
-        //            //MessageBox.Show(ex.Message);
-        //            Response.Write(ex.Message);
-        //        }
-        //        catch (BaseException ex)
-        //        {
-        //            //MessageBox.Show(ex.Message);
-        //            Response.Write(ex.Message);
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            //MessageBox.Show("Error:" + ex.Message);
-        //            Response.Write("Error:" + ex.Message);
-        //        }
-        //    }
-        //}
 
         private void InsertOrderProducts()
         {
@@ -465,9 +375,10 @@ namespace AxcessoNexHub
                     con.Close();
                     EmptyCart();
                     //Response.Redirect("Success.aspx");
-                    Response.Write("<script>alert('Order placed sucesfully')</script>");
+                   // Response.Write("<script>alert('Order placed sucesfully')</script>");
                 }
-                    Response.Redirect("product.aspx");
+                //Response.Redirect("product.aspx");
+                StripePayment();
             }
         }
 
@@ -486,6 +397,10 @@ namespace AxcessoNexHub
                 con.Close();
             }
         }
-         
+
+        protected void btnDemo_Click(object sender, EventArgs e)
+        {
+            StripePayment();    
+        }
     }
 }
