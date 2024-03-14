@@ -1,6 +1,48 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminMaster.Master" AutoEventWireup="true" CodeBehind="adminHome.aspx.cs" Inherits="AxcessoNexHub.adminHome" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script>
+    $(document).ready(function () {
+        // Make an AJAX request to fetch chart data
+        $.ajax({
+            url: '/api/ChartData/GetChartData',
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                // Call a function to render the chart with the fetched data
+                renderChart(data);
+            },
+            error: function (error) {
+                console.error('Error fetching chart data:', error);
+            }
+        });
+    });
+
+    function renderChart(chartData) {
+        // Your chart rendering logic using Chart.js
+        var ctx = document.getElementById('barChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Label 1', 'Label 2', 'Label 3', 'Label 4', 'Label 5'],
+                datasets: [{
+                    label: 'Chart Data',
+                    data: chartData,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+    </script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

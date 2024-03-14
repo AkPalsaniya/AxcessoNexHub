@@ -55,20 +55,20 @@
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a href="AdminHome.aspx" class="nav-link">Home</a>
-                            </li> 
-                        </ul> 
+                            </li>
+                        </ul>
                     </div>
 
                     <!-- Right navbar links -->
                     <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
                         <%-- User Menu --%>
                         <li class="nav-item">
-                            <a href="AddProduct.aspx" class="nav-link"><i class="fa fa-shopping-bag" aria-hidden="true"> Add Product</i></a>
+                            <a href="AddProduct.aspx" class="nav-link"><i class="fa fa-shopping-bag" aria-hidden="true">Add Product</i></a>
                         </li>
                         <!-- Messages Dropdown Menu -->
                         <li class="nav-item dropdown">
                             <a class="nav-link" data-toggle="dropdown" href="#">
-                                <i class="fas fa-edit"> Manage</i>
+                                <i class="fas fa-edit">Manage</i>
                                 <%--<span class="badge badge-danger navbar-badge">3</span>--%>
                             </a>
                             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
@@ -77,12 +77,12 @@
                                 <li><a href="addSubCategory.aspx" class="dropdown-item">SubCategory</a> </li>
                                 <%--<li><a href="AddGender.aspx" class="dropdown-item">Add Gender</a> </li>--%>
                                 <li><a href="orderManage.aspx" class="dropdown-item">Order</a> </li>
-                                
+
                             </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="Report.aspx">
-                                <i class="fas fa-file"> Report</i>
+                                <i class="fas fa-file">Report</i>
                             </a>
                         </li>
                         <!-- Notifications Dropdown Menu -->
@@ -94,8 +94,8 @@
                         <li class="nav-item">
                             <asp:LinkButton ID="lknBtnLogout" runat="server" class="action-btn" OnClick="lknBtnLogout_Click">
     <i class="fas fa-sign-out" >Logout</i>
-                            </asp:LinkButton> 
-                        </li> 
+                            </asp:LinkButton>
+                        </li>
                     </ul>
                 </div>
             </nav>

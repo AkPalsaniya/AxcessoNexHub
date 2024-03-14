@@ -68,16 +68,11 @@
                                 starting at &dollar; <b>29</b>.99
                             </p>
 
-                            <a href="#" class="banner-btn">Shop now</a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
+                            <a href="#" class="banner-btn">Shop now</a> 
+                        </div> 
+                    </div> 
+                </div> 
+            </div> 
         </div>
 
         <%-- Categoies --%>
