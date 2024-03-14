@@ -46,8 +46,5 @@ namespace AxcessoNexHub
                 lblTotalRevenue.Text = toatalRevenue.ToString();
             }
         }
-
-        
-
     }
 }
